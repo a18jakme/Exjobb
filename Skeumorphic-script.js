@@ -11,7 +11,17 @@ var iconArray =
 "<img onclick='messageFunction(this.id)' id=Jewelryicon class=iconimage src=Skeumorph-icons/jewelry-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Pensilicon class=iconimage src=Skeumorph-icons/pensil-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Travelicon class=iconimage src=Skeumorph-icons/travel-icon/57.png>"];
+var textQuote = ["Hamburgericon", "Ballicon", "Donuticon", "Coffeeicon", "Bookicon", "Glassesicon", "Speakericon", "Cameraicon", "Toolicon", "Jewelryicon", "Pensilicon","Travelicon"];
+var rand;
 
+function onloadFunction(){
+    randomQuote();
+    randomIcon();
+}
+function randomQuote(){
+    rand = Math.floor(Math.random() * textQuote.length);
+    document.getElementById('textinstruction').innerHTML = textQuote[rand];
+}
 function randomIcon(){
     for (var i = iconArray.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));

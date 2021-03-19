@@ -22,4 +22,10 @@ body{
     img{
         margin: 5px;
     }
+    #textfield {
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 12px;
+        text-align: center;
+    }
 }
