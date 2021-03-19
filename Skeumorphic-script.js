@@ -18,6 +18,20 @@ function onloadFunction(){
     randomQuote();
     randomIcon();
 }
+function changeStyle(){
+    var skeumorphMatrix = document.getElementById("skeumorphmatrix");
+    var flatdesignMatrix = document.getElementById("flatdesignmatrix");
+    if(skeumorphMatrix.display === 'block'){
+        skeumorphMatrix.display='none';
+        flatdesignMatrix.display='block';
+        console.log("flat");
+    }
+    else{
+        skeumorphMatrix.display='block';
+        flatdesignMatrix.display='none';
+        console.log("skeu");
+    }
+}
 function randomQuote(){
     rand = Math.floor(Math.random() * textQuote.length);
     document.getElementById('textinstruction').innerHTML = textQuote[rand];

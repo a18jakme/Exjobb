@@ -28,4 +28,10 @@ body{
         font-size: 12px;
         text-align: center;
     }
+    #flatdesignmatrix{
+        display: none;
+    }
+    #skeumorphmatrix{
+        display: block;
+    }
 }
