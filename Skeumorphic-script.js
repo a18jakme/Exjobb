@@ -23,6 +23,7 @@ function randomQuote(){
     document.getElementById('textinstruction').innerHTML = textQuote[rand];
 }
 function randomIcon(){
+    document.getElementById('message').innerHTML = "";
     for (var i = iconArray.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var tempArray = iconArray[i];
@@ -41,4 +42,13 @@ function randomIcon(){
     document.getElementById("icon10").innerHTML = iconArray[9];
     document.getElementById("icon11").innerHTML = iconArray[10];
     document.getElementById("icon12").innerHTML = iconArray[11];
+}
+function messageFunction(iconName){
+    if(iconName == textQuote[rand]){
+        randomIcon();
+        randomQuote();
+    }
+    else{
+        document.getElementById('message').innerHTML = "Wrong";
+    }
 }
