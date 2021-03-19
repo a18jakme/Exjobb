@@ -18,6 +18,7 @@ function onloadFunction(){
     randomQuote();
     randomIcon();
 }
+//
 function randomQuote(){
     rand = Math.floor(Math.random() * textQuote.length);
     document.getElementById('textinstruction').innerHTML = textQuote[rand];
