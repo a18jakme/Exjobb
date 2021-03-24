@@ -25,27 +25,27 @@ var FlatIconArray =
 "<img onclick='messageFunction(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
-var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", 
-"Pencil-icon","Search-icon"];
+var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var rand;
-var skeumorphMatrix;
-var flatdesignMatrix;
+var skeumorphPage;
+var flatdesignPage;
 
 function onloadFunction(){
-    skeumorphMatrix = document.getElementById("skeumorphmatrix");
-    flatdesignMatrix = document.getElementById("flatdesignmatrix");
-    skeumorphMatrix.style.display='block';
+    skeumorphPage = document.getElementById("skeumorphismpage");
+    flatdesignPage = document.getElementById("flatdesignpage");
+    skeumorphPage.style.display='block';
     randomQuote();
     randomIcon();
 }
+// change theme to flat or skeuomorphic
 function changeStyle(){
-    if(skeumorphMatrix.style.display == 'block'){
-        skeumorphMatrix.style.display='none';
-        flatdesignMatrix.style.display='block';
+    if(skeumorphPage.style.display == 'block'){
+        skeumorphPage.style.display='none';
+        flatdesignPage.style.display='block';
     }
     else{
-        skeumorphMatrix.style.display='block';
-        flatdesignMatrix.style.display='none';
+        skeumorphPage.style.display='block';
+        flatdesignPage.style.display='none';
     }
 }
 function randomQuote(){
@@ -53,7 +53,7 @@ function randomQuote(){
     document.getElementById('textinstruction').innerHTML = textQuote[rand];
 }
 function randomIcon(){
-    document.getElementById('message').innerHTML = "";
+    document.getElementById('wrongmessage').innerHTML = "";
     for (var i = SkeuomorphIconArray.length - 1; i > 0; i--) {
         var j = Math.floor(myrng() * (i + 1));
         var tempArray = SkeuomorphIconArray[i];
@@ -94,6 +94,6 @@ function messageFunction(iconName){
         randomIcon();
     }
     else{
-        document.getElementById('message').innerHTML = "Wrong";
+        document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
     }
 }
