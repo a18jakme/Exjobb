@@ -30,12 +30,19 @@ var rand;
 var skeumorphPage;
 var flatdesignPage;
 
+function saveUserTimes() {
+    $.post("data.php",
+    {
+        test1: 2,
+    });
+}
 function onloadFunction(){
     skeumorphPage = document.getElementById("skeumorphismpage");
     flatdesignPage = document.getElementById("flatdesignpage");
     skeumorphPage.style.display='block';
     randomQuote();
     randomIcon();
+    saveUserTimes();
 }
 // change theme to flat or skeuomorphic
 function changeStyle(){
