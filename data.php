@@ -8,11 +8,12 @@ $conn = new mysqli($servername, $username, $password, $dbname); // Create connec
 if ($conn->connect_error) {     // Check connection
     die("Connection failed: " . $conn->connect_error);
 } 
+// Ensure that the variable is correct
+$username= mysqli_real_escape_string($conn, $_POST['username']); 
+$fails= mysqli_real_escape_string($conn, $_POST['fails']); 
 
-$test1= mysqli_real_escape_string($conn, $_POST['test1']); // Ensure that the variable is correct
-
-$sql = "INSERT INTO test (test1)
-VALUES ('$test1')";
+$sql = "INSERT INTO myData (username, fails)
+VALUES ('$user','$fails')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Page saved!";

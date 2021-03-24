@@ -1,4 +1,6 @@
 var myrng = new Math.seedrandom('randomicon');
+var user=1;
+var fails = 0;
 var SkeuomorphIconArray = 
 ["<img onclick='messageFunction(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
@@ -29,11 +31,13 @@ var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon",
 var rand;
 var skeumorphPage;
 var flatdesignPage;
+var rightClicks = 0;
 
-function saveUserTimes() {
+function saveData() {
     $.post("data.php",
     {
-        test1: 2,
+        username: user,
+        fails: fails,
     });
 }
 function onloadFunction(){
@@ -42,7 +46,6 @@ function onloadFunction(){
     skeumorphPage.style.display='block';
     randomQuote();
     randomIcon();
-    saveUserTimes();
 }
 // change theme to flat or skeuomorphic
 function changeStyle(){
@@ -97,10 +100,18 @@ function randomIcon(){
 }
 function messageFunction(iconName){
     if(iconName == textQuote[rand]){
-        randomQuote();
-        randomIcon();
+        rightClicks ++;
+        if(rightClicks >= 5){
+            saveData();
+            document.getElementById('wrongmessage').innerHTML = "slut";
+        }
+        else{
+            randomQuote();
+            randomIcon();
+        }
     }
     else{
         document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
+        fails ++;
     }
 }
