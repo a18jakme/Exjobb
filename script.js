@@ -32,12 +32,15 @@ var rand;
 var skeumorphPage;
 var flatdesignPage;
 var rightClicks = 0;
+var timerstart;
+var totaltime;
 
 function saveData() {
     $.post("data.php",
     {
         username: user,
         fails: fails,
+        millispeed: totaltime,
     });
 }
 function onloadFunction(){
@@ -46,6 +49,7 @@ function onloadFunction(){
     skeumorphPage.style.display='block';
     randomQuote();
     randomIcon();
+    timerstart = new Date().getTime();
 }
 // change theme to flat or skeuomorphic
 function changeStyle(){
@@ -102,6 +106,7 @@ function messageFunction(iconName){
     if(iconName == textQuote[rand]){
         rightClicks ++;
         if(rightClicks >= 5){
+            totaltime = new Date().getTime() - timerstart;
             saveData();
             document.getElementById('wrongmessage').innerHTML = "slut";
         }

@@ -11,9 +11,10 @@ if ($conn->connect_error) {     // Check connection
 // Ensure that the variable is correct
 $username= mysqli_real_escape_string($conn, $_POST['username']); 
 $fails= mysqli_real_escape_string($conn, $_POST['fails']); 
+$millispeed= mysqli_real_escape_string($conn, $_POST['millispeed']);
 
-$sql = "INSERT INTO myData (username, fails)
-VALUES ('$user','$fails')";
+$sql = "INSERT INTO myData (username, fails, millispeed)
+VALUES ('$user','$fails','$millispeed')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Page saved!";
