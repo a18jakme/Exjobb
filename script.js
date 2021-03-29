@@ -29,43 +29,55 @@ var FlatIconArray =
 "<img onclick='messageFunction(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var rand;
-var skeumorphPage;
-var flatdesignPage;
+var skeumorphTheme;
+var flatdesignTheme;
 var rightClicks = 0;
-var timerstart;
-var totaltime;
+var startTimer;
+var totalTime;
 
 function saveData() {
     $.post("data.php",
     {
         username: user,
         fails: fails,
-        millispeed: totaltime,
+        millispeed: totalTime,
     });
 }
 function onloadFunction(){
-    skeumorphPage = document.getElementById("skeumorphismpage");
-    flatdesignPage = document.getElementById("flatdesignpage");
-    skeumorphPage.style.display='block';
+    skeumorphTheme = document.getElementById("skeumorph-content");
+    flatdesignTheme = document.getElementById("flatdesign-content");
+    page1 = document.getElementById("page1");
+    page2 = document.getElementById("page2");
+    page3 = document.getElementById("page3");
+    skeumorphTheme.style.display='block';
+}
+// change page
+function changePage(page){
+    if (page=="page2"){
+        page2.style.display='block';
+        page1.style.display='none';
+        page3.style.display='none';
+    }
+    else if(page=="page3"){
+        page2.style.display='none';
+        page3.style.display='block';
+    }
+}
+//experiment timer start
+function timerStart(){
+    startTimer = new Date().getTime();
     randomQuote();
     randomIcon();
-    timerstart = new Date().getTime();
-}
-function changePage(){
-    serveyPage = document.getElementById("surveypage");
-    experimentPage = document.getElementById("experimentpage");
-    experimentPage.style.display='block';
-    serveyPage.style.display='none';
 }
 // change theme to flat or skeuomorphic
-function changeStyle(){
-    if(skeumorphPage.style.display == 'block'){
-        skeumorphPage.style.display='none';
-        flatdesignPage.style.display='block';
+function changeTheme(){
+    if(skeumorphTheme.style.display == 'block'){
+        skeumorphTheme.style.display='none';
+        flatdesignTheme.style.display='block';
     }
     else{
-        skeumorphPage.style.display='block';
-        flatdesignPage.style.display='none';
+        skeumorphTheme.style.display='block';
+        flatdesignTheme.style.display='none';
     }
 }
 function randomQuote(){
@@ -112,9 +124,14 @@ function messageFunction(iconName){
     if(iconName == textQuote[rand]){
         rightClicks ++;
         if(rightClicks >= 5){
-            totaltime = new Date().getTime() - timerstart;
+            totalTime = new Date().getTime() - startTimer;
             saveData();
             document.getElementById('wrongmessage').innerHTML = "End";
+            document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
+            changePage('page2');
+            changeTheme();
+            rightClicks = 0;
+            fails = 0;
         }
         else{
             randomQuote();
