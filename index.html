@@ -7,44 +7,63 @@
         <script src="script.js"></script> 
     </head>
     <body onload="onloadFunction();">
-        <button onclick="changeStyle();">change style</button>
-        <div id="textfield"><p>Click on: </p><p id="textinstruction"></p></div>
-        <div id=skeumorphismpage>
-            <div id="skeumorphmatrix">
-                <div id=smatrix>
-                    <div id=sicon1 class=smatrixicon></div>
-                    <div id=sicon2 class=smatrixicon></div>
-                    <div id=sicon3 class=smatrixicon></div>
-                    <div id=sicon4 class=smatrixicon></div>
-                    <div id=sicon5 class=smatrixicon></div>
-                    <div id=sicon6 class=smatrixicon></div>
-                    <div id=sicon7 class=smatrixicon></div>
-                    <div id=sicon8 class=smatrixicon></div>
-                    <div id=sicon9 class=smatrixicon></div>
-                    <div id=sicon10 class=smatrixicon></div>
-                    <div id=sicon11 class=smatrixicon></div>
-                    <div id=sicon12 class=smatrixicon></div>
+        <div id="surveypage">
+            <form onsubmit="changePage(); return false;">
+                <label for="vehicle1">Question 1</label>
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <br><label for="vehicle2">Question 2</label>
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <br><label for="vehicle3">Question 3</label>
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <input type="checkbox" id="" name="" value="">
+                <br><input type="submit" value="submit">
+              </form>
+        </div>
+        <div id="experimentpage">
+            <button onclick="changeStyle();">change style</button>
+            <div id="textfield"><p>Click on: </p><p id="textinstruction"></p></div>
+            <div id=skeumorphismpage>
+                <div id="skeumorphmatrix">
+                    <div id=smatrix>
+                        <div id=sicon1 class=smatrixicon></div>
+                        <div id=sicon2 class=smatrixicon></div>
+                        <div id=sicon3 class=smatrixicon></div>
+                        <div id=sicon4 class=smatrixicon></div>
+                        <div id=sicon5 class=smatrixicon></div>
+                        <div id=sicon6 class=smatrixicon></div>
+                        <div id=sicon7 class=smatrixicon></div>
+                        <div id=sicon8 class=smatrixicon></div>
+                        <div id=sicon9 class=smatrixicon></div>
+                        <div id=sicon10 class=smatrixicon></div>
+                        <div id=sicon11 class=smatrixicon></div>
+                        <div id=sicon12 class=smatrixicon></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id=flatdesignpage>  
-            <div id="flatdesignmatrix">
-                <div id=fmatrix>
-                    <div id=ficon1 class=fmatrixicon></div>
-                    <div id=ficon2 class=fmatrixicon></div>
-                    <div id=ficon3 class=fmatrixicon></div>
-                    <div id=ficon4 class=fmatrixicon></div>
-                    <div id=ficon5 class=fmatrixicon></div>
-                    <div id=ficon6 class=fmatrixicon></div>
-                    <div id=ficon7 class=fmatrixicon></div>
-                    <div id=ficon8 class=fmatrixicon></div>
-                    <div id=ficon9 class=fmatrixicon></div>
-                    <div id=ficon10 class=fmatrixicon></div>
-                    <div id=ficon11 class=fmatrixicon></div>
-                    <div id=ficon12 class=fmatrixicon></div>
+            <div id=flatdesignpage>  
+                <div id="flatdesignmatrix">
+                    <div id=fmatrix>
+                        <div id=ficon1 class=fmatrixicon></div>
+                        <div id=ficon2 class=fmatrixicon></div>
+                        <div id=ficon3 class=fmatrixicon></div>
+                        <div id=ficon4 class=fmatrixicon></div>
+                        <div id=ficon5 class=fmatrixicon></div>
+                        <div id=ficon6 class=fmatrixicon></div>
+                        <div id=ficon7 class=fmatrixicon></div>
+                        <div id=ficon8 class=fmatrixicon></div>
+                        <div id=ficon9 class=fmatrixicon></div>
+                        <div id=ficon10 class=fmatrixicon></div>
+                        <div id=ficon11 class=fmatrixicon></div>
+                        <div id=ficon12 class=fmatrixicon></div>
+                    </div>
                 </div>
             </div>
+            <div id=wrongmessage></div>
         </div>
-        <div id=wrongmessage></div>
     </body>
 </html>

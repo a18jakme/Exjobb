@@ -51,6 +51,12 @@ function onloadFunction(){
     randomIcon();
     timerstart = new Date().getTime();
 }
+function changePage(){
+    serveyPage = document.getElementById("surveypage");
+    experimentPage = document.getElementById("experimentpage");
+    experimentPage.style.display='block';
+    serveyPage.style.display='none';
+}
 // change theme to flat or skeuomorphic
 function changeStyle(){
     if(skeumorphPage.style.display == 'block'){
@@ -108,7 +114,7 @@ function messageFunction(iconName){
         if(rightClicks >= 5){
             totaltime = new Date().getTime() - timerstart;
             saveData();
-            document.getElementById('wrongmessage').innerHTML = "slut";
+            document.getElementById('wrongmessage').innerHTML = "End";
         }
         else{
             randomQuote();
