@@ -34,6 +34,7 @@ var flatdesignTheme;
 var rightClicks = 0;
 var startTimer;
 var totalTime;
+var bool;
 
 function saveData() {
     $.post("data.php",
@@ -74,10 +75,12 @@ function changeTheme(){
     if(skeumorphTheme.style.display == 'block'){
         skeumorphTheme.style.display='none';
         flatdesignTheme.style.display='block';
+        bool = true;
     }
     else{
         skeumorphTheme.style.display='block';
         flatdesignTheme.style.display='none';
+        bool=false;
     }
 }
 function randomQuote(){
@@ -88,45 +91,51 @@ function randomIcon(){
     document.getElementById('wrongmessage').innerHTML = "";
     for (var i = SkeuomorphIconArray.length - 1; i > 0; i--) {
         var j = Math.floor(myrng() * (i + 1));
-        var tempArray = SkeuomorphIconArray[i];
-        SkeuomorphIconArray[i] = SkeuomorphIconArray[j];
-        SkeuomorphIconArray[j] = tempArray;
-        tempArray=FlatIconArray[i];
-        FlatIconArray[i] = FlatIconArray[j];
-        FlatIconArray[j] = tempArray;
-        document.getElementById("sicon1").innerHTML = SkeuomorphIconArray[0];
-        document.getElementById("sicon2").innerHTML = SkeuomorphIconArray[1];
-        document.getElementById("sicon3").innerHTML = SkeuomorphIconArray[2];
-        document.getElementById("sicon4").innerHTML = SkeuomorphIconArray[3];
-        document.getElementById("sicon5").innerHTML = SkeuomorphIconArray[4];
-        document.getElementById("sicon6").innerHTML = SkeuomorphIconArray[5];
-        document.getElementById("sicon7").innerHTML = SkeuomorphIconArray[6];
-        document.getElementById("sicon8").innerHTML = SkeuomorphIconArray[7];
-        document.getElementById("sicon9").innerHTML = SkeuomorphIconArray[8];
-        document.getElementById("sicon10").innerHTML = SkeuomorphIconArray[9];
-        document.getElementById("sicon11").innerHTML = SkeuomorphIconArray[10];
-        document.getElementById("sicon12").innerHTML = SkeuomorphIconArray[11];
-        document.getElementById("ficon1").innerHTML = FlatIconArray[0];
-        document.getElementById("ficon2").innerHTML = FlatIconArray[1];
-        document.getElementById("ficon3").innerHTML = FlatIconArray[2];
-        document.getElementById("ficon4").innerHTML = FlatIconArray[3];
-        document.getElementById("ficon5").innerHTML = FlatIconArray[4];
-        document.getElementById("ficon6").innerHTML = FlatIconArray[5];
-        document.getElementById("ficon7").innerHTML = FlatIconArray[6];
-        document.getElementById("ficon8").innerHTML = FlatIconArray[7];
-        document.getElementById("ficon9").innerHTML = FlatIconArray[8];
-        document.getElementById("ficon10").innerHTML = FlatIconArray[9];
-        document.getElementById("ficon11").innerHTML = FlatIconArray[10];
-        document.getElementById("ficon12").innerHTML = FlatIconArray[11];
+        console.log(j);
+        var tempArray;
+        if(!bool){
+            tempArray = SkeuomorphIconArray[i];
+            SkeuomorphIconArray[i] = SkeuomorphIconArray[j];
+            SkeuomorphIconArray[j] = tempArray;
+            document.getElementById("sicon1").innerHTML = SkeuomorphIconArray[0];
+            document.getElementById("sicon2").innerHTML = SkeuomorphIconArray[1];
+            document.getElementById("sicon3").innerHTML = SkeuomorphIconArray[2];
+            document.getElementById("sicon4").innerHTML = SkeuomorphIconArray[3];
+            document.getElementById("sicon5").innerHTML = SkeuomorphIconArray[4];
+            document.getElementById("sicon6").innerHTML = SkeuomorphIconArray[5];
+            document.getElementById("sicon7").innerHTML = SkeuomorphIconArray[6];
+            document.getElementById("sicon8").innerHTML = SkeuomorphIconArray[7];
+            document.getElementById("sicon9").innerHTML = SkeuomorphIconArray[8];
+            document.getElementById("sicon10").innerHTML = SkeuomorphIconArray[9];
+            document.getElementById("sicon11").innerHTML = SkeuomorphIconArray[10];
+            document.getElementById("sicon12").innerHTML = SkeuomorphIconArray[11];
+        }
+        else{
+            tempArray = FlatIconArray[i];
+            FlatIconArray[i] = FlatIconArray[j];
+            FlatIconArray[j] = tempArray;
+            document.getElementById("ficon1").innerHTML = FlatIconArray[0];
+            document.getElementById("ficon2").innerHTML = FlatIconArray[1];
+            document.getElementById("ficon3").innerHTML = FlatIconArray[2];
+            document.getElementById("ficon4").innerHTML = FlatIconArray[3];
+            document.getElementById("ficon5").innerHTML = FlatIconArray[4];
+            document.getElementById("ficon6").innerHTML = FlatIconArray[5];
+            document.getElementById("ficon7").innerHTML = FlatIconArray[6];
+            document.getElementById("ficon8").innerHTML = FlatIconArray[7];
+            document.getElementById("ficon9").innerHTML = FlatIconArray[8];
+            document.getElementById("ficon10").innerHTML = FlatIconArray[9];
+            document.getElementById("ficon11").innerHTML = FlatIconArray[10];
+            document.getElementById("ficon12").innerHTML = FlatIconArray[11];
+        }
     }
 }
 function messageFunction(iconName){
     if(iconName == textQuote[rand]){
         rightClicks ++;
         if(rightClicks >= 5){
+            myrng = new Math.seedrandom('randomicon');
             totalTime = new Date().getTime() - startTimer;
             saveData();
-            document.getElementById('wrongmessage').innerHTML = "End";
             document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
             changePage('page2');
             changeTheme();
