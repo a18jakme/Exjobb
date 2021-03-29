@@ -1,4 +1,6 @@
 var myrng = new Math.seedrandom('randomicon');
+var user=1;
+var fails = 0;
 var SkeuomorphIconArray = 
 ["<img onclick='messageFunction(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
@@ -29,13 +31,31 @@ var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon",
 var rand;
 var skeumorphPage;
 var flatdesignPage;
+var rightClicks = 0;
+var timerstart;
+var totaltime;
 
+function saveData() {
+    $.post("data.php",
+    {
+        username: user,
+        fails: fails,
+        millispeed: totaltime,
+    });
+}
 function onloadFunction(){
     skeumorphPage = document.getElementById("skeumorphismpage");
     flatdesignPage = document.getElementById("flatdesignpage");
     skeumorphPage.style.display='block';
     randomQuote();
     randomIcon();
+    timerstart = new Date().getTime();
+}
+function changePage(){
+    serveyPage = document.getElementById("surveypage");
+    experimentPage = document.getElementById("experimentpage");
+    experimentPage.style.display='block';
+    serveyPage.style.display='none';
 }
 // change theme to flat or skeuomorphic
 function changeStyle(){
@@ -90,10 +110,19 @@ function randomIcon(){
 }
 function messageFunction(iconName){
     if(iconName == textQuote[rand]){
-        randomQuote();
-        randomIcon();
+        rightClicks ++;
+        if(rightClicks >= 5){
+            totaltime = new Date().getTime() - timerstart;
+            saveData();
+            document.getElementById('wrongmessage').innerHTML = "End";
+        }
+        else{
+            randomQuote();
+            randomIcon();
+        }
     }
     else{
         document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
+        fails ++;
     }
 }
