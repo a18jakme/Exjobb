@@ -1,6 +1,5 @@
 var myrng = new Math.seedrandom('randomicon');
-var user=1;
-var fails = 0;
+
 var SkeuomorphIconArray = 
 ["<img onclick='messageFunction(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='messageFunction(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
@@ -29,6 +28,8 @@ var FlatIconArray =
 "<img onclick='messageFunction(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var rand;
+var user;
+var fails = 0;
 var skeumorphTheme;
 var flatdesignTheme;
 var rightClicks = 0;
