@@ -171,11 +171,6 @@ function startSkeuomrphExperiment(){
     randomQuote();
     randomIcon();
     timerStart();
-    console.log(user);
-    console.log(userAge);
-    console.log(userMobileExperience);
-    console.log(userInternet);
-    console.log(userDevice);
 }
 function startFlatdesignExperiment(){
     changeTheme();
