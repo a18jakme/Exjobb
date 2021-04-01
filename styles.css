@@ -8,6 +8,8 @@ body{
     }
     .content-container{
         margin-top: 50%;
+        text-align: center;
+        font-size: large;
     }
     #page2{
         display: none;  
@@ -15,15 +17,25 @@ body{
     #page3{
         display: none;  
     }
+    #page4{
+        display: none;  
+    }
+    #page5{
+        display: none;  
+    }
 
     /* Surveypage css */
-    .content-container{
+    .question-label{
+        margin-top: 5%;
+    }
+    .option-label{
+        display: inline-block;
         text-align: center;
-        font-size: large;
     }
-    input[type="checkbox"] {
-        margin-bottom: 5%;
+    .answer-label{
+        font-size: 14px;
     }
+ 
 
     /* Experimentpage css */
     .iconmatrix{

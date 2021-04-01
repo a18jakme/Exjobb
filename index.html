@@ -9,32 +9,66 @@
     <body onload="onloadFunction();">
         <div id="page1">
             <div id="survey-content" class="content-container">
-                <form id="survey-form" onsubmit="changePage('page2'); return false;">
-                    <label class="questionlable">Question 1</label><br>
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <br><label class="questionlable">Question 2</label><br>
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <br><label class="questionlable">Question 3</label><br>
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <br><label class="questionlable">Question 3</label><br>
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <input type="checkbox" id="" name="" value="">
-                    <br><input type="submit" value="submit">
+                <form id="survey-form" method="POST">
+                    <input type="text" id="user" name="primary" value="user test">
+                    <div class="question-label">Which agegroup do you belong to?</div>
+                    <div class="option-label">
+                        <input class="agegroup-input" type="radio" id="" name="agegroup" value="20-40">
+                        <div class="answer-label">20-40</div>
+                    </div>
+                    <div class="option-label">
+                        <input class="agegroup-input" type="radio" id="" name="agegroup" value="40-60">
+                        <div class="answer-label">40-60</div>  
+                    </div>
+                    <div class="question-label">How often do you use your mobile?</div>
+                    <div class="option-label">
+                        <input class="experience-input" type="radio" id="" name="experience" value="daily">
+                        <div class="answer-label">daily</div>
+                    </div>
+                    <div class="option-label">
+                        <input class="experience-input" type="radio" id="" name="experience" value="weekly">
+                        <div class="answer-label">weekly</div>  
+                    </div>
+                    <div class="option-label">
+                        <input class="experience-input" type="radio" id="" name="experience" value="monthly">
+                        <div class="answer-label">monthly</div>
+                    </div>
+                    <div class="question-label">Which internet connection do you use?</div>
+                    <div class="option-label">
+                        <input class="internet-input" type="radio" id="" name="internet"  value="fiber">
+                        <div class="answer-label">fiber</div>
+                    </div>
+                    <div class="option-label">
+                        <input class="internet-input" type="radio" id="" name="internet" value="4g">
+                        <div class="answer-label">4g</div>  
+                    </div>
+                    <div class="option-label">
+                        <input class="internet-input" type="radio" id="" name="internet" value="other">
+                        <div class="answer-label">other</div>
+                    </div>
+                    <div class="question-label">Which device are you using?</div>
+                    <div class="option-label">
+                        <input class="device-input" type="radio" id="" name="device" value="iphone">
+                        <div class="answer-label">fiber</div>
+                    </div>
+                    <div class="option-label">
+                        <input class="device-input" type="radio" id="" name="device" value="andriod">
+                        <div class="answer-label">4g</div>  
+                    </div>
+                    <div class="option-label">
+                        <input class="device-input" type="radio" id="" name="device" value="other">
+                        <div class="answer-label">other</div>
+                    </div>
+                    <br><div class="question-label">     
+                    </div>
                 </form>
+                <button id="form-btn" value="submit" onclick="changePage('page2'); formData();">submit</button>
             </div>
         </div>
         <div id="page2">
             <div class="content-container">
                 <p id="experiment-intructions"> Click on five correct skeuomorphic icons in the experiment </p>
-                <button onclick="changePage('page3'); timerStart();" id=start-btn>start the experiment</button>
+                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >start the experiment</button>
             </div>
         </div>
         <div id="page3">
@@ -74,6 +108,17 @@
                     </div>
                 </div>
                 <div id=wrongmessage></div>
+            </div>
+        </div>
+        <div id="page4">
+            <div class="content-container">
+                <p id="experiment-intructions"> Click on five correct Flat design icons in the experiment </p>
+                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>start the experiment</button>
+            </div>
+        </div>
+        <div id="page5">
+            <div class="content-container">
+                <p id="experiment-intructions"> Slut </p>
             </div>
         </div>
     </body>
