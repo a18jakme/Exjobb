@@ -1,87 +1,121 @@
 var myrng = new Math.seedrandom('randomicon');
-
 var SkeuomorphIconArray = 
-["<img onclick='messageFunction(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Coffee-icon class=iconimage src=Skeumorph-icons/coffee-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Book-icon class=iconimage src=Skeumorph-icons/book-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Glasses-icon class=iconimage src=Skeumorph-icons/glasses-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Speaker-icon class=iconimage src=Skeumorph-icons/speaker-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Camera-icon class=iconimage src=Skeumorph-icons/camera-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Trashcan-icon class=iconimage src=Skeumorph-icons/trashcan-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
+["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Coffee-icon class=iconimage src=Skeumorph-icons/coffee-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Book-icon class=iconimage src=Skeumorph-icons/book-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Glasses-icon class=iconimage src=Skeumorph-icons/glasses-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Speaker-icon class=iconimage src=Skeumorph-icons/speaker-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Camera-icon class=iconimage src=Skeumorph-icons/camera-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Trashcan-icon class=iconimage src=Skeumorph-icons/trashcan-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
 var FlatIconArray = 
-["<img onclick='messageFunction(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Coffee-icon class=iconimage src=Flatdesign-icons/coffee-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Book-icon class=iconimage src=Flatdesign-icons/book-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Glasses-icon class=iconimage src=Flatdesign-icons/glasses-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Speaker-icon class=iconimage src=Flatdesign-icons/speaker-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Camera-icon class=iconimage src=Flatdesign-icons/camera-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Trashcan-icon class=iconimage src=Flatdesign-icons/trashcan-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
-"<img onclick='messageFunction(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
+["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Coffee-icon class=iconimage src=Flatdesign-icons/coffee-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Book-icon class=iconimage src=Flatdesign-icons/book-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Glasses-icon class=iconimage src=Flatdesign-icons/glasses-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Speaker-icon class=iconimage src=Flatdesign-icons/speaker-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Camera-icon class=iconimage src=Flatdesign-icons/camera-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Trashcan-icon class=iconimage src=Flatdesign-icons/trashcan-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
+"<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var rand;
 var user;
-var fails = 0;
+var skeumorphFails = 0;
+var flatDesignFails = 0;
 var skeumorphTheme;
 var flatdesignTheme;
-var rightClicks = 0;
-var startTimer;
-var totalTime;
-var bool;
-
-function saveData() {
-    $.post("data.php",
-    {
-        username: user,
-        fails: fails,
-        millispeed: totalTime,
-    });
-}
+var skeumorphRightClicks = 0;
+var flatdesignRightClicks = 0;
+var startSkeumorphTimer;
+var startFlatdesignTimer;
+var totalSkeumorphTime;
+var totalFlatdesignTime;
+var flatdesignExperiment;
+var userAge;
+var userMobileExperience;
+var userInternet;
+var userDevice;
 function onloadFunction(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
     page1 = document.getElementById("page1");
     page2 = document.getElementById("page2");
     page3 = document.getElementById("page3");
+    page4 = document.getElementById("page4");
     skeumorphTheme.style.display='block';
 }
-// change page
+function saveData() {
+    $.post("data.php",
+    {
+        username: user,
+        age: userAge,
+        experience: userMobileExperience,
+        internet: userInternet,
+        device: userDevice,
+        fails: fails,
+        millispeed: totalTime,
+    });
+}
+function formData(){
+    userAge = $('.agegroup-input:checked').val();
+    userMobileExperience = $('.experience-input:checked').val();
+    userInternet = $('.internet-input:checked').val();
+    userDevice = $('.device-input:checked').val();
+}
+
 function changePage(page){
     if (page=="page2"){
         page2.style.display='block';
         page1.style.display='none';
         page3.style.display='none';
+        page4.style.display='none';
     }
     else if(page=="page3"){
         page2.style.display='none';
         page3.style.display='block';
+        page4.style.display='none';
+    }
+    else if(page=="page4"){
+        page2.style.display='none';
+        page3.style.display='none';
+        page4.style.display='block';
+    }
+    else if(page=="page5"){
+        saveData();
+        page2.style.display='none';
+        page3.style.display='none';
+        page4.style.display='none';
+        page5.style.display='block';
     }
 }
 //experiment timer start
 function timerStart(){
-    startTimer = new Date().getTime();
-    randomQuote();
-    randomIcon();
+    if(!flatdesignExperiment){
+        startSkeumorphTimer = new Date().getTime();
+    }
+    else{
+        startFlatdesignTimer = new Date().getTime();
+    }
 }
 // change theme to flat or skeuomorphic
 function changeTheme(){
     if(skeumorphTheme.style.display == 'block'){
         skeumorphTheme.style.display='none';
         flatdesignTheme.style.display='block';
-        bool = true;
+        flatdesignExperiment=true;
     }
     else{
         skeumorphTheme.style.display='block';
         flatdesignTheme.style.display='none';
-        bool=false;
+        flatdesignExperiment=false;
     }
 }
 function randomQuote(){
@@ -92,9 +126,8 @@ function randomIcon(){
     document.getElementById('wrongmessage').innerHTML = "";
     for (var i = SkeuomorphIconArray.length - 1; i > 0; i--) {
         var j = Math.floor(myrng() * (i + 1));
-        console.log(j);
         var tempArray;
-        if(!bool){
+        if(!flatdesignExperiment){
             tempArray = SkeuomorphIconArray[i];
             SkeuomorphIconArray[i] = SkeuomorphIconArray[j];
             SkeuomorphIconArray[j] = tempArray;
@@ -130,26 +163,55 @@ function randomIcon(){
         }
     }
 }
-function messageFunction(iconName){
+function startSkeuomrphExperiment(){
+    randomQuote();
+    randomIcon();
+    timerStart();
+}
+function startFlatdesignExperiment(){
+    changeTheme();
+    document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
+    myrng = new Math.seedrandom('randomicon');
+    randomQuote();
+    randomIcon();
+    timerStart();
+}
+function checkRightIcon(iconName){
     if(iconName == textQuote[rand]){
-        rightClicks ++;
-        if(rightClicks >= 5){
-            myrng = new Math.seedrandom('randomicon');
-            totalTime = new Date().getTime() - startTimer;
-            saveData();
-            document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
-            changePage('page2');
-            changeTheme();
-            rightClicks = 0;
-            fails = 0;
+        if(!flatdesignExperiment){
+            skeumorphRightClicks ++;
+            if(skeumorphRightClicks >= 5){
+                totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
+                changePage('page4');
+                skeumorphRightClicks = 0;
+            }
+            else{
+                randomQuote();
+                randomIcon();
+            }
         }
         else{
-            randomQuote();
-            randomIcon();
+            flatdesignRightClicks ++;
+            if(flatdesignRightClicks >= 5){
+                totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
+                flatdesignRightClicks = 0;
+                changePage('page5');
+            }
+            else{
+                randomQuote();
+                randomIcon();
+            }
         }
     }
     else{
-        document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
-        fails ++;
+        if(!flatdesignExperiment){
+            document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
+            skeumorphFails ++;
+        }
+        else{
+            document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
+            flatDesignFails ++;
+        }
+
     }
 }
