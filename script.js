@@ -29,7 +29,7 @@ var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon",
 var rand;
 var user;
 var skeumorphFails = 0;
-var flatDesignFails = 0;
+var flatdesignFails = 0;
 var skeumorphTheme;
 var flatdesignTheme;
 var skeumorphRightClicks = 0;
@@ -60,15 +60,19 @@ function saveData() {
         experience: userMobileExperience,
         internet: userInternet,
         device: userDevice,
-        fails: fails,
-        millispeed: totalTime,
+        skeumorphfails: skeumorphFails,
+        skeumorphtotaltime: totalSkeumorphTime,
+        flatdesignfails: flatdesignFails,
+        flatdesigntotaltime: totalFlatdesignTime,
     });
 }
 function formData(){
+    user = $('#user').val();
     userAge = $('.agegroup-input:checked').val();
     userMobileExperience = $('.experience-input:checked').val();
     userInternet = $('.internet-input:checked').val();
     userDevice = $('.device-input:checked').val();
+
 }
 
 function changePage(page){
@@ -167,6 +171,11 @@ function startSkeuomrphExperiment(){
     randomQuote();
     randomIcon();
     timerStart();
+    console.log(user);
+    console.log(userAge);
+    console.log(userMobileExperience);
+    console.log(userInternet);
+    console.log(userDevice);
 }
 function startFlatdesignExperiment(){
     changeTheme();
@@ -210,7 +219,7 @@ function checkRightIcon(iconName){
         }
         else{
             document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
-            flatDesignFails ++;
+            flatdesignFails ++;
         }
 
     }
