@@ -35,7 +35,10 @@ body{
     .answer-label{
         font-size: 14px;
     }
- 
+    .validate-text{
+        color: red;
+        font-size: 10px;
+    }
 
     /* Experimentpage css */
     .iconmatrix{

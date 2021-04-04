@@ -43,7 +43,7 @@ var userAge;
 var userMobileExperience;
 var userInternet;
 var userDevice;
-function onloadFunction(){
+function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
     page1 = document.getElementById("page1");
@@ -67,14 +67,53 @@ function saveData() {
     });
 }
 function formData(){
+    if(formValidate() == false){
+    changePage('page2');
     user = $('#user').val();
     userAge = $('.agegroup-input:checked').val();
     userMobileExperience = $('.experience-input:checked').val();
     userInternet = $('.internet-input:checked').val();
     userDevice = $('.device-input:checked').val();
-
+    }
+    else{
+    }
 }
-
+function formValidate(){
+    formValid = false;
+    var ageRadios = document.getElementsByName("agegroup");
+    var experienceRadios = document.getElementsByName("experience");
+    var internetRadios = document.getElementsByName("internet");
+    var deviceRadios = document.getElementsByName("device");
+    if (!(ageRadios[0].checked || ageRadios[1].checked)) {
+        document.getElementById("agevalidate-text").innerHTML = ("Please Select Your agegroup");
+        formValid = true;
+    }
+    else{
+        document.getElementById("agevalidate-text").innerHTML = ("");
+    }
+    if (!(experienceRadios[0].checked || experienceRadios[1].checked || experienceRadios[2].checked)) {
+        document.getElementById("experiencevalidate-text").innerHTML = ("Please Select Your experience");
+        formValid = true;
+    }
+    else{
+        document.getElementById("experiencevalidate-text").innerHTML = ("");
+    }
+    if (!(internetRadios[0].checked || internetRadios[1].checked || internetRadios[2].checked)) {
+        document.getElementById("internetvalidate-text").innerHTML = ("Please Select Your internet");
+        formValid = true;
+    }
+    else{
+        document.getElementById("internetvalidate-text").innerHTML = ("");
+    }
+    if (!(deviceRadios[0].checked || deviceRadios[1].checked || deviceRadios[2].checked)) {
+        document.getElementById("devicevalidate-text").innerHTML = ("Please Select Your device");
+        formValid = true;
+    }
+    else{
+        document.getElementById("devicevalidate-text").innerHTML = ("");
+    }
+    return formValid;
+}
 function changePage(page){
     if (page=="page2"){
         page2.style.display='block';
