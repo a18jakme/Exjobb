@@ -85,28 +85,28 @@ function formValidate(){
     var internetRadios = document.getElementsByName("internet");
     var deviceRadios = document.getElementsByName("device");
     if (!(ageRadios[0].checked || ageRadios[1].checked)) {
-        document.getElementById("agevalidate-text").innerHTML = ("Please Select Your agegroup");
+        document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
         formValid = true;
     }
     else{
         document.getElementById("agevalidate-text").innerHTML = ("");
     }
     if (!(experienceRadios[0].checked || experienceRadios[1].checked || experienceRadios[2].checked)) {
-        document.getElementById("experiencevalidate-text").innerHTML = ("Please Select Your experience");
+        document.getElementById("experiencevalidate-text").innerHTML = ("Please select your mobile experience");
         formValid = true;
     }
     else{
         document.getElementById("experiencevalidate-text").innerHTML = ("");
     }
     if (!(internetRadios[0].checked || internetRadios[1].checked || internetRadios[2].checked)) {
-        document.getElementById("internetvalidate-text").innerHTML = ("Please Select Your internet");
+        document.getElementById("internetvalidate-text").innerHTML = ("Please select your internet connection");
         formValid = true;
     }
     else{
         document.getElementById("internetvalidate-text").innerHTML = ("");
     }
     if (!(deviceRadios[0].checked || deviceRadios[1].checked || deviceRadios[2].checked)) {
-        document.getElementById("devicevalidate-text").innerHTML = ("Please Select Your device");
+        document.getElementById("devicevalidate-text").innerHTML = ("Please select your kind of device");
         formValid = true;
     }
     else{
