@@ -9,7 +9,7 @@ body{
     .content-container{
         margin-top: 50%;
         text-align: center;
-        font-size: large;
+        font-size: 16px;
     }
     #page2{
         display: none;  
@@ -23,7 +23,15 @@ body{
     #page5{
         display: none;  
     }
-
+    button{
+        background-color: #4CAF50; /* Green */
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+    }
     /* Surveypage css */
     .question-label{
         margin-top: 5%;
@@ -33,7 +41,7 @@ body{
         text-align: center;
     }
     .answer-label{
-        font-size: 14px;
+        font-size: 12px;
     }
     .validate-text{
         color: red;

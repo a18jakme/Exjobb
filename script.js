@@ -213,7 +213,6 @@ function startSkeuomrphExperiment(){
 }
 function startFlatdesignExperiment(){
     changeTheme();
-    document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
     myrng = new Math.seedrandom('randomicon');
     randomQuote();
     randomIcon();

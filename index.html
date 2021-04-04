@@ -10,7 +10,7 @@
         <div id="page1">
             <div id="survey-content" class="content-container">
                 <form id="survey-form" method="POST">
-                    <input type="text" id="user" name="primary" value="user ID">
+                    <input type="text" id="user" name="primary" value="username">
                     <div class="question-label">Which agegroup do you belong to?</div>
                     <div class="option-label">
                         <input class="agegroup-input" type="radio" id="" name="agegroup" value="20-40">
@@ -71,12 +71,12 @@
         </div>
         <div id="page2">
             <div class="content-container">
-                <p id="experiment-intructions"> Click on five correct skeuomorphic icons in the experiment </p>
-                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >start the experiment</button>
+                <p id="skeumorphexperiment-intructions"> In the experiment you should click on five correct skeuomorphic icons in the matrix. The text explains which icon to press. See the example picture below.</p>
+                <img src=img/Skeuomorphexperiment-example.png>
+                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >Start the experiment</button>
             </div>
         </div>
         <div id="page3">
-            <button onclick="changeTheme();">change style</button>
             <div id="experiment-content" class="content-container">
                 <div id="textfield"><p>Click on: </p><p id="textinstruction"></p></div>
                 <div id="skeumorph-content" class="experiment-content-container">
@@ -116,13 +116,14 @@
         </div>
         <div id="page4">
             <div class="content-container">
-                <p id="experiment-intructions"> Click on five correct Flat design icons in the experiment </p>
-                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>start the experiment</button>
+                <p id="flatdesignexperiment-intructions"> Now click on five correct Flat design icons in the matrix like the example picture below.</p>
+                <img src=img/Flatexperiment-example.png>
+                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>Start the experiment</button>
             </div>
         </div>
         <div id="page5">
             <div class="content-container">
-                <p id="experiment-intructions"> Slut </p>
+                <p> Thank you for your participation! </p>
             </div>
         </div>
     </body>
