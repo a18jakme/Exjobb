@@ -1,4 +1,4 @@
-var myrng = new Math.seedrandom('randomicon');
+var myrng = new Math.seedrandom('myrandom');
 var SkeuomorphIconArray = 
 ["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
@@ -69,7 +69,7 @@ function saveData() {
 function formData(){
     if(formValidate() == false){
     changePage('page2');
-    user = $('#user').val();
+    user = $('#userid-inpu').val();
     userAge = $('.agegroup-input:checked').val();
     userMobileExperience = $('.experience-input:checked').val();
     userInternet = $('.internet-input:checked').val();
@@ -84,6 +84,14 @@ function formValidate(){
     var experienceRadios = document.getElementsByName("experience");
     var internetRadios = document.getElementsByName("internet");
     var deviceRadios = document.getElementsByName("device");
+    var userIdInput = document.getElementById("userid-input");
+    if (userIdInput.value.length <1) {
+        document.getElementById("useridvalidate-text").innerHTML = ("Please name a username");
+        formValid = true;
+    }
+    else{
+        document.getElementById("useridvalidate-text").innerHTML = ("");
+    }
     if (!(ageRadios[0].checked || ageRadios[1].checked)) {
         document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
         formValid = true;
@@ -213,7 +221,7 @@ function startSkeuomrphExperiment(){
 }
 function startFlatdesignExperiment(){
     changeTheme();
-    myrng = new Math.seedrandom('randomicon');
+    myrng = new Math.seedrandom('myrandom');
     randomQuote();
     randomIcon();
     timerStart();
