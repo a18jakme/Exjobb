@@ -1,4 +1,4 @@
-var myrng = new Math.seedrandom('randomicon');
+var myrng = new Math.seedrandom('myrandom');
 var SkeuomorphIconArray = 
 ["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
@@ -43,7 +43,7 @@ var userAge;
 var userMobileExperience;
 var userInternet;
 var userDevice;
-function onloadFunction(){
+function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
     page1 = document.getElementById("page1");
@@ -67,14 +67,61 @@ function saveData() {
     });
 }
 function formData(){
-    user = $('#user').val();
+    if(formValidate() == false){
+    changePage('page2');
+    user = $('#userid-inpu').val();
     userAge = $('.agegroup-input:checked').val();
     userMobileExperience = $('.experience-input:checked').val();
     userInternet = $('.internet-input:checked').val();
     userDevice = $('.device-input:checked').val();
-
+    }
+    else{
+    }
 }
-
+function formValidate(){
+    formValid = false;
+    var ageRadios = document.getElementsByName("agegroup");
+    var experienceRadios = document.getElementsByName("experience");
+    var internetRadios = document.getElementsByName("internet");
+    var deviceRadios = document.getElementsByName("device");
+    var userIdInput = document.getElementById("userid-input");
+    if (userIdInput.value.length <1) {
+        document.getElementById("useridvalidate-text").innerHTML = ("Please name a username");
+        formValid = true;
+    }
+    else{
+        document.getElementById("useridvalidate-text").innerHTML = ("");
+    }
+    if (!(ageRadios[0].checked || ageRadios[1].checked)) {
+        document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
+        formValid = true;
+    }
+    else{
+        document.getElementById("agevalidate-text").innerHTML = ("");
+    }
+    if (!(experienceRadios[0].checked || experienceRadios[1].checked || experienceRadios[2].checked)) {
+        document.getElementById("experiencevalidate-text").innerHTML = ("Please select your mobile experience");
+        formValid = true;
+    }
+    else{
+        document.getElementById("experiencevalidate-text").innerHTML = ("");
+    }
+    if (!(internetRadios[0].checked || internetRadios[1].checked || internetRadios[2].checked)) {
+        document.getElementById("internetvalidate-text").innerHTML = ("Please select your internet connection");
+        formValid = true;
+    }
+    else{
+        document.getElementById("internetvalidate-text").innerHTML = ("");
+    }
+    if (!(deviceRadios[0].checked || deviceRadios[1].checked || deviceRadios[2].checked)) {
+        document.getElementById("devicevalidate-text").innerHTML = ("Please select your kind of device");
+        formValid = true;
+    }
+    else{
+        document.getElementById("devicevalidate-text").innerHTML = ("");
+    }
+    return formValid;
+}
 function changePage(page){
     if (page=="page2"){
         page2.style.display='block';
@@ -171,16 +218,10 @@ function startSkeuomrphExperiment(){
     randomQuote();
     randomIcon();
     timerStart();
-    console.log(user);
-    console.log(userAge);
-    console.log(userMobileExperience);
-    console.log(userInternet);
-    console.log(userDevice);
 }
 function startFlatdesignExperiment(){
     changeTheme();
-    document.getElementById('experiment-intructions').innerHTML = "Click on five correct flat design icons in the experiment";
-    myrng = new Math.seedrandom('randomicon');
+    myrng = new Math.seedrandom('myrandom');
     randomQuote();
     randomIcon();
     timerStart();

@@ -6,11 +6,12 @@
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script> 
     </head>
-    <body onload="onloadFunction();">
+    <body onload="body();">
         <div id="page1">
             <div id="survey-content" class="content-container">
                 <form id="survey-form" method="POST">
-                    <input type="text" id="user" name="primary" value="user test">
+                    <input id="userid-input" class="text-input" type="text" id="user" name="primary" placeholder="username">
+                    <div id=useridvalidate-text class="validate-text"></div>
                     <div class="question-label">Which agegroup do you belong to?</div>
                     <div class="option-label">
                         <input class="agegroup-input" type="radio" id="" name="agegroup" value="20-40">
@@ -20,23 +21,25 @@
                         <input class="agegroup-input" type="radio" id="" name="agegroup" value="40-60">
                         <div class="answer-label">40-60</div>  
                     </div>
+                    <div id=agevalidate-text class="validate-text"></div>
                     <div class="question-label">How often do you use your mobile?</div>
                     <div class="option-label">
                         <input class="experience-input" type="radio" id="" name="experience" value="daily">
-                        <div class="answer-label">daily</div>
+                        <div class="answer-label">Daily</div>
                     </div>
                     <div class="option-label">
                         <input class="experience-input" type="radio" id="" name="experience" value="weekly">
-                        <div class="answer-label">weekly</div>  
+                        <div class="answer-label">Weekly</div>  
                     </div>
                     <div class="option-label">
                         <input class="experience-input" type="radio" id="" name="experience" value="monthly">
-                        <div class="answer-label">monthly</div>
+                        <div class="answer-label">Monthly</div>
                     </div>
+                    <div id=experiencevalidate-text class="validate-text"></div>
                     <div class="question-label">Which internet connection do you use?</div>
                     <div class="option-label">
                         <input class="internet-input" type="radio" id="" name="internet"  value="fiber">
-                        <div class="answer-label">fiber</div>
+                        <div class="answer-label">Fiber</div>
                     </div>
                     <div class="option-label">
                         <input class="internet-input" type="radio" id="" name="internet" value="4g">
@@ -44,35 +47,37 @@
                     </div>
                     <div class="option-label">
                         <input class="internet-input" type="radio" id="" name="internet" value="other">
-                        <div class="answer-label">other</div>
+                        <div class="answer-label">Other</div>
                     </div>
+                    <div id=internetvalidate-text class="validate-text"></div>
                     <div class="question-label">Which device are you using?</div>
                     <div class="option-label">
                         <input class="device-input" type="radio" id="" name="device" value="iphone">
-                        <div class="answer-label">fiber</div>
+                        <div class="answer-label">Iphone</div>
                     </div>
                     <div class="option-label">
                         <input class="device-input" type="radio" id="" name="device" value="andriod">
-                        <div class="answer-label">4g</div>  
+                        <div class="answer-label">Android</div>  
                     </div>
                     <div class="option-label">
                         <input class="device-input" type="radio" id="" name="device" value="other">
-                        <div class="answer-label">other</div>
+                        <div class="answer-label">Other</div>
                     </div>
+                    <div id=devicevalidate-text class="validate-text"></div>
                     <br><div class="question-label">     
                     </div>
                 </form>
-                <button id="form-btn" value="submit" onclick="changePage('page2'); formData();">submit</button>
+                <button id="form-btn" value="submit" onclick="formData();">submit</button>
             </div>
         </div>
         <div id="page2">
             <div class="content-container">
-                <p id="experiment-intructions"> Click on five correct skeuomorphic icons in the experiment </p>
-                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >start the experiment</button>
+                <p id="skeumorphexperiment-intructions"> In the experiment you should click on five correct skeuomorphic icons in the matrix. The text explains which icon to press. See the example picture below.</p>
+                <img src=img/Skeuomorphexperiment-example.png>
+                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >Start the experiment</button>
             </div>
         </div>
         <div id="page3">
-            <button onclick="changeTheme();">change style</button>
             <div id="experiment-content" class="content-container">
                 <div id="textfield"><p>Click on: </p><p id="textinstruction"></p></div>
                 <div id="skeumorph-content" class="experiment-content-container">
@@ -112,13 +117,14 @@
         </div>
         <div id="page4">
             <div class="content-container">
-                <p id="experiment-intructions"> Click on five correct Flat design icons in the experiment </p>
-                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>start the experiment</button>
+                <p id="flatdesignexperiment-intructions"> Now click on five correct Flat design icons in the matrix like the example picture below.</p>
+                <img src=img/Flatexperiment-example.png>
+                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>Start the experiment</button>
             </div>
         </div>
         <div id="page5">
             <div class="content-container">
-                <p id="experiment-intructions"> Slut </p>
+                <p> Thank you for your participation! </p>
             </div>
         </div>
     </body>
