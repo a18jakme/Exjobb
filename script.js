@@ -26,8 +26,8 @@ var FlatIconArray =
 "<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
+var id = new Date().toLocaleString();;
 var rand;
-var user;
 var skeumorphFails = 0;
 var flatdesignFails = 0;
 var skeumorphTheme;
@@ -40,7 +40,7 @@ var totalSkeumorphTime;
 var totalFlatdesignTime;
 var flatdesignExperiment;
 var userAge;
-var userMobileExperience;
+var userExperience;
 var userInternet;
 var userDevice;
 function body(){
@@ -55,10 +55,9 @@ function body(){
 function saveData() {
     $.post("data.php",
     {
-        username: user,
+        id: id,
         age: userAge,
-        experience: userMobileExperience,
-        internet: userInternet,
+        experience: userExperience,
         device: userDevice,
         skeumorphfails: skeumorphFails,
         skeumorphtotaltime: totalSkeumorphTime,
@@ -69,9 +68,8 @@ function saveData() {
 function formData(){
     if(formValidate() == false){
     changePage('page2');
-    user = $('#userid-inpu').val();
     userAge = $('.agegroup-input:checked').val();
-    userMobileExperience = $('.experience-input:checked').val();
+    userExperience = $('.experience-input:checked').val();
     userInternet = $('.internet-input:checked').val();
     userDevice = $('.device-input:checked').val();
     }
@@ -84,14 +82,6 @@ function formValidate(){
     var experienceRadios = document.getElementsByName("experience");
     var internetRadios = document.getElementsByName("internet");
     var deviceRadios = document.getElementsByName("device");
-    var userIdInput = document.getElementById("userid-input");
-    if (userIdInput.value.length <1) {
-        document.getElementById("useridvalidate-text").innerHTML = ("Please name a username");
-        formValid = true;
-    }
-    else{
-        document.getElementById("useridvalidate-text").innerHTML = ("");
-    }
     if (!(ageRadios[0].checked || ageRadios[1].checked)) {
         document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
         formValid = true;

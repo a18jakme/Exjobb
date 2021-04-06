@@ -9,18 +9,17 @@ if ($conn->connect_error) {     // Check connection
     die("Connection failed: " . $conn->connect_error);
 } 
 // Ensure that the variable is correct
-$username= mysqli_real_escape_string($conn, $_POST['username']); 
+$id= mysqli_real_escape_string($conn, $_POST['id']); 
 $age= mysqli_real_escape_string($conn, $_POST['age']); 
 $device= mysqli_real_escape_string($conn, $_POST['device']);
 $experience= mysqli_real_escape_string($conn, $_POST['experience']);
-$internet= mysqli_real_escape_string($conn, $_POST['internet']);
 $skeumorphfails= mysqli_real_escape_string($conn, $_POST['skeumorphfails']);
 $skeumorphtotaltime= mysqli_real_escape_string($conn, $_POST['skeumorphtotaltime']);
 $flatdesignfails= mysqli_real_escape_string($conn, $_POST['flatdesignfails']);
 $flatdesigntotaltime= mysqli_real_escape_string($conn, $_POST['flatdesigntotaltime']);
 
-$sql = "INSERT INTO myData (username, age, device, experience, internet, skeumorphfails, skeumorphspeed, flatdesignfails, flatdesignspeed)
-VALUES ('$username','$age','$device','$experience','$internet','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime')";
+$sql = "INSERT INTO mydata (id, agegroup, device, experience, skeuomorphfails, skeuomorphtime, flatdesignfails, flatdesigntime)
+VALUES ('$id','$age','$device','$experience','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Page saved!";
