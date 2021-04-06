@@ -41,7 +41,7 @@ var totalFlatdesignTime;
 var flatdesignExperiment;
 var userAge;
 var userExperience;
-var userInternet;
+var userbrowser;
 var userDevice;
 function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
@@ -59,6 +59,7 @@ function saveData() {
         age: userAge,
         experience: userExperience,
         device: userDevice,
+        browser: userbrowser,
         skeumorphfails: skeumorphFails,
         skeumorphtotaltime: totalSkeumorphTime,
         flatdesignfails: flatdesignFails,
@@ -70,7 +71,7 @@ function formData(){
     changePage('page2');
     userAge = $('.agegroup-input:checked').val();
     userExperience = $('.experience-input:checked').val();
-    userInternet = $('.internet-input:checked').val();
+    userbrowser = $('.browser-input:checked').val();
     userDevice = $('.device-input:checked').val();
     }
     else{
@@ -80,7 +81,7 @@ function formValidate(){
     formValid = false;
     var ageRadios = document.getElementsByName("agegroup");
     var experienceRadios = document.getElementsByName("experience");
-    var internetRadios = document.getElementsByName("internet");
+    var browserRadios = document.getElementsByName("browser");
     var deviceRadios = document.getElementsByName("device");
     if (!(ageRadios[0].checked || ageRadios[1].checked)) {
         document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
@@ -96,12 +97,12 @@ function formValidate(){
     else{
         document.getElementById("experiencevalidate-text").innerHTML = ("");
     }
-    if (!(internetRadios[0].checked || internetRadios[1].checked || internetRadios[2].checked)) {
-        document.getElementById("internetvalidate-text").innerHTML = ("Please select your internet connection");
+    if (!(browserRadios[0].checked || browserRadios[1].checked || browserRadios[2].checked)) {
+        document.getElementById("browservalidate-text").innerHTML = ("Please select your browser connection");
         formValid = true;
     }
     else{
-        document.getElementById("internetvalidate-text").innerHTML = ("");
+        document.getElementById("browservalidate-text").innerHTML = ("");
     }
     if (!(deviceRadios[0].checked || deviceRadios[1].checked || deviceRadios[2].checked)) {
         document.getElementById("devicevalidate-text").innerHTML = ("Please select your kind of device");
