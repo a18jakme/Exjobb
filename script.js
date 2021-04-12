@@ -1,5 +1,11 @@
-var myrng = new Math.seedrandom('myrandom');
-var SkeuomorphIconArray = 
+/**
+ * Master thesis
+ * @author Jakob Mellqvist
+ */
+
+/* Global variables */
+var myrng = new Math.seedrandom('myrandom'); //save a specific random
+var skeuomorphIconArray = 
 ["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
@@ -12,7 +18,7 @@ var SkeuomorphIconArray =
 "<img onclick='checkRightIcon(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
-var FlatIconArray = 
+var flatIconArray = 
 ["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
@@ -26,24 +32,27 @@ var FlatIconArray =
 "<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
-var id = new Date().toLocaleString();;
 var rand;
-var skeumorphFails = 0;
-var flatdesignFails = 0;
 var skeumorphTheme;
 var flatdesignTheme;
-var skeumorphRightClicks = 0;
-var flatdesignRightClicks = 0;
 var startSkeumorphTimer;
 var startFlatdesignTimer;
-var totalSkeumorphTime;
-var totalFlatdesignTime;
-var flatdesignExperiment=false;
+var flatdesignExperiment = false;
+var numOfExperiment = 0;
+var skeumorphRightClicks = 0;
+var flatdesignRightClicks = 0;
+
+/* Measure data variables */
+var id = new Date().toLocaleString();
 var userAge;
 var userExperience;
-var userbrowser;
+var userBrowser;
 var userDevice;
-var numOfExperiment = 0;
+var skeumorphFails = 0;
+var flatdesignFails = 0;
+var totalSkeumorphTime;
+var totalFlatdesignTime;
+
 function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
@@ -59,7 +68,7 @@ function saveData() {
     console.log(userAge);
     console.log(userExperience);
     console.log(userDevice);
-    console.log(userbrowser);
+    console.log(userBrowser);
     console.log("skeufails: " +skeumorphFails);
     console.log("seutime: " +totalSkeumorphTime);
     console.log("flatfails: " + flatdesignFails);
@@ -70,18 +79,19 @@ function saveData() {
         age: userAge,
         experience: userExperience,
         device: userDevice,
-        browser: userbrowser,
+        browser: userBrowser,
         skeumorphfails: skeumorphFails,
         skeumorphtotaltime: totalSkeumorphTime,
         flatdesignfails: flatdesignFails,
         flatdesigntotaltime: totalFlatdesignTime,
     });
 }
+/* Stores data from survey form */
 function formData(){
     if(formValidate() == false){
         userAge = $('.agegroup-input:checked').val();
         userExperience = $('.experience-input:checked').val();
-        userbrowser = $('.browser-input:checked').val();
+        userBrowser = $('.browser-input:checked').val();
         userDevice = $('.device-input:checked').val();
         if(document.getElementById("check-exstart").checked){
             changePage('page4');
@@ -94,8 +104,8 @@ function formData(){
     }
     else{
     }
-
 }
+/* Validate survey form */
 function formValidate(){
     formValid = false;
     var ageRadios = document.getElementsByName("agegroup");
@@ -176,7 +186,7 @@ function changePage(page){
         countdownTimer();
     }
 }
-//experiment timer start
+/* Experiment timer start */
 function timerStart(){
     if(!flatdesignExperiment){
         startSkeumorphTimer = new Date().getTime();
@@ -185,7 +195,17 @@ function timerStart(){
         startFlatdesignTimer = new Date().getTime();
     }
 }
-// change theme to flat or skeuomorphic
+function startSkeuomorphExperiment(){
+    changeTheme();
+    changePage('page3');
+    timerStart();
+}
+function startFlatdesignExperiment(){
+    changeTheme();
+    changePage('page3');
+    timerStart();
+}
+/* Change theme to flat or skeuomorphic */
 function changeTheme(){
     if(flatdesignExperiment==true){
         skeumorphTheme.style.display='none';
@@ -199,60 +219,53 @@ function changeTheme(){
     }
 }
 function randomQuote(){
-    rand = Math.floor(myrng() * textQuote.length);
+    rand = Math.floor(myrng() * textQuote.length); // Generate same random text
     document.getElementById('textinstruction').innerHTML = textQuote[rand];
 }
+/* Generate random icon */
 function randomIcon(){
     document.getElementById('wrongmessage').innerHTML = "";
-    for (var i = SkeuomorphIconArray.length - 1; i > 0; i--) {
-        var j = Math.floor(myrng() * (i + 1));
+    for (var i = skeuomorphIconArray.length - 1; i > 0; i--) {
+        var j = Math.floor(myrng() * (i + 1)); // Generate same random icon posisitons
         var tempArray;
+        // Generate flat or skeuomorphic icons
         if(!flatdesignExperiment){
-            tempArray = SkeuomorphIconArray[i];
-            SkeuomorphIconArray[i] = SkeuomorphIconArray[j];
-            SkeuomorphIconArray[j] = tempArray;
-            document.getElementById("sicon1").innerHTML = SkeuomorphIconArray[0];
-            document.getElementById("sicon2").innerHTML = SkeuomorphIconArray[1];
-            document.getElementById("sicon3").innerHTML = SkeuomorphIconArray[2];
-            document.getElementById("sicon4").innerHTML = SkeuomorphIconArray[3];
-            document.getElementById("sicon5").innerHTML = SkeuomorphIconArray[4];
-            document.getElementById("sicon6").innerHTML = SkeuomorphIconArray[5];
-            document.getElementById("sicon7").innerHTML = SkeuomorphIconArray[6];
-            document.getElementById("sicon8").innerHTML = SkeuomorphIconArray[7];
-            document.getElementById("sicon9").innerHTML = SkeuomorphIconArray[8];
-            document.getElementById("sicon10").innerHTML = SkeuomorphIconArray[9];
-            document.getElementById("sicon11").innerHTML = SkeuomorphIconArray[10];
-            document.getElementById("sicon12").innerHTML = SkeuomorphIconArray[11];
+            tempArray = skeuomorphIconArray[i];
+            skeuomorphIconArray[i] = skeuomorphIconArray[j];
+            skeuomorphIconArray[j] = tempArray;
+            document.getElementById("sicon1").innerHTML = skeuomorphIconArray[0];
+            document.getElementById("sicon2").innerHTML = skeuomorphIconArray[1];
+            document.getElementById("sicon3").innerHTML = skeuomorphIconArray[2];
+            document.getElementById("sicon4").innerHTML = skeuomorphIconArray[3];
+            document.getElementById("sicon5").innerHTML = skeuomorphIconArray[4];
+            document.getElementById("sicon6").innerHTML = skeuomorphIconArray[5];
+            document.getElementById("sicon7").innerHTML = skeuomorphIconArray[6];
+            document.getElementById("sicon8").innerHTML = skeuomorphIconArray[7];
+            document.getElementById("sicon9").innerHTML = skeuomorphIconArray[8];
+            document.getElementById("sicon10").innerHTML = skeuomorphIconArray[9];
+            document.getElementById("sicon11").innerHTML = skeuomorphIconArray[10];
+            document.getElementById("sicon12").innerHTML = skeuomorphIconArray[11];
         }
         else{
-            tempArray = FlatIconArray[i];
-            FlatIconArray[i] = FlatIconArray[j];
-            FlatIconArray[j] = tempArray;
-            document.getElementById("ficon1").innerHTML = FlatIconArray[0];
-            document.getElementById("ficon2").innerHTML = FlatIconArray[1];
-            document.getElementById("ficon3").innerHTML = FlatIconArray[2];
-            document.getElementById("ficon4").innerHTML = FlatIconArray[3];
-            document.getElementById("ficon5").innerHTML = FlatIconArray[4];
-            document.getElementById("ficon6").innerHTML = FlatIconArray[5];
-            document.getElementById("ficon7").innerHTML = FlatIconArray[6];
-            document.getElementById("ficon8").innerHTML = FlatIconArray[7];
-            document.getElementById("ficon9").innerHTML = FlatIconArray[8];
-            document.getElementById("ficon10").innerHTML = FlatIconArray[9];
-            document.getElementById("ficon11").innerHTML = FlatIconArray[10];
-            document.getElementById("ficon12").innerHTML = FlatIconArray[11];
+            tempArray = flatIconArray[i];
+            flatIconArray[i] = flatIconArray[j];
+            flatIconArray[j] = tempArray;
+            document.getElementById("ficon1").innerHTML = flatIconArray[0];
+            document.getElementById("ficon2").innerHTML = flatIconArray[1];
+            document.getElementById("ficon3").innerHTML = flatIconArray[2];
+            document.getElementById("ficon4").innerHTML = flatIconArray[3];
+            document.getElementById("ficon5").innerHTML = flatIconArray[4];
+            document.getElementById("ficon6").innerHTML = flatIconArray[5];
+            document.getElementById("ficon7").innerHTML = flatIconArray[6];
+            document.getElementById("ficon8").innerHTML = flatIconArray[7];
+            document.getElementById("ficon9").innerHTML = flatIconArray[8];
+            document.getElementById("ficon10").innerHTML = flatIconArray[9];
+            document.getElementById("ficon11").innerHTML = flatIconArray[10];
+            document.getElementById("ficon12").innerHTML = flatIconArray[11];
         }
     }
 }
-function startSkeuomorphExperiment(){
-    changeTheme();
-    changePage('page3');
-    timerStart();
-}
-function startFlatdesignExperiment(){
-    changeTheme();
-    changePage('page3');
-    timerStart();
-}
+/* Check right and fail clicks */
 function checkRightIcon(iconName){
     if(iconName == textQuote[rand]){
         if(!flatdesignExperiment){
@@ -306,24 +319,25 @@ function checkRightIcon(iconName){
 
     }
 }
+/* Start countdown timer before every experiment */
 function countdownTimer(){
 var timeleft = 5;
-myrng = new Math.seedrandom('myrandom');
+myrng = new Math.seedrandom('myrandom'); // generate the same random for icon and quote
 randomQuote();
 randomIcon();
 var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    document.getElementById("countdown").innerHTML = "";
-    clearInterval(downloadTimer);
-    if(!flatdesignExperiment){
-        startSkeuomorphExperiment();
+    if(timeleft <= 0){
+        document.getElementById("countdown").innerHTML = "";
+        clearInterval(downloadTimer);
+        if(!flatdesignExperiment){
+            startSkeuomorphExperiment();
+        }
+        else{
+            startFlatdesignExperiment();
+        }
+        } else {
+        document.getElementById("countdown").innerHTML = "Experiment starts in: " + timeleft;
     }
-    else{
-        startFlatdesignExperiment();
-    }
-  } else {
-    document.getElementById("countdown").innerHTML = "Experiemnt starts in: " + timeleft;
-  }
-  timeleft -= 1;
-}, 1000);
+    timeleft -= 1;
+    }, 1000);
 }
