@@ -119,19 +119,25 @@ function changePage(page){
         page1.style.display='none';
         page3.style.display='none';
         page4.style.display='none';
+        page5.style.display='none';
     }
     else if(page=="page3"){
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='block';
         page4.style.display='none';
+        page5.style.display='none';
     }
     else if(page=="page4"){
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='none';
         page4.style.display='block';
+        page5.style.display='none';
     }
     else if(page=="page5"){
         saveData();
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='none';
         page4.style.display='none';
@@ -208,6 +214,7 @@ function randomIcon(){
 function startSkeuomrphExperiment(){
     randomQuote();
     randomIcon();
+    changePage('page3');
     timerStart();
 }
 function startFlatdesignExperiment(){
@@ -215,6 +222,7 @@ function startFlatdesignExperiment(){
     myrng = new Math.seedrandom('myrandom');
     randomQuote();
     randomIcon();
+    changePage('page3');
     timerStart();
 }
 function checkRightIcon(iconName){
