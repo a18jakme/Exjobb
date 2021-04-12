@@ -2,7 +2,7 @@
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"">
         <link rel="stylesheet" href="styles.css">
         <script src="script.js"></script> 
     </head>
@@ -10,8 +10,6 @@
         <div id="page1">
             <div id="survey-content" class="content-container">
                 <form id="survey-form" method="POST">
-                    <input id="userid-input" class="text-input" type="text" id="user" name="primary" placeholder="username">
-                    <div id=useridvalidate-text class="validate-text"></div>
                     <div class="question-label">Which agegroup do you belong to?</div>
                     <div class="option-label">
                         <input class="agegroup-input" type="radio" id="" name="agegroup" value="20-40">
@@ -36,20 +34,20 @@
                         <div class="answer-label">Monthly</div>
                     </div>
                     <div id=experiencevalidate-text class="validate-text"></div>
-                    <div class="question-label">Which internet connection do you use?</div>
+                    <div class="question-label">Which browser do you use?</div>
                     <div class="option-label">
-                        <input class="internet-input" type="radio" id="" name="internet"  value="fiber">
-                        <div class="answer-label">Fiber</div>
+                        <input class="browser-input" type="radio" id="" name="browser"  value="chrome">
+                        <div class="answer-label">Google Chrome</div>
                     </div>
                     <div class="option-label">
-                        <input class="internet-input" type="radio" id="" name="internet" value="4g">
-                        <div class="answer-label">4g</div>  
+                        <input class="browser-input" type="radio" id="" name="browser" value="safari">
+                        <div class="answer-label">Safari</div>  
                     </div>
                     <div class="option-label">
-                        <input class="internet-input" type="radio" id="" name="internet" value="other">
+                        <input class="browser-input" type="radio" id="" name="browser" value="other">
                         <div class="answer-label">Other</div>
                     </div>
-                    <div id=internetvalidate-text class="validate-text"></div>
+                    <div id=browservalidate-text class="validate-text"></div>
                     <div class="question-label">Which device are you using?</div>
                     <div class="option-label">
                         <input class="device-input" type="radio" id="" name="device" value="iphone">
@@ -69,12 +67,15 @@
                 </form>
                 <button id="form-btn" value="submit" onclick="formData();">submit</button>
             </div>
+            <div id="exstart-cont">Check for start with flatdesign
+                <input id="check-exstart" type="checkbox">
+            </div>
         </div>
         <div id="page2">
             <div class="content-container">
                 <p id="skeumorphexperiment-intructions"> In the experiment you should click on five correct skeuomorphic icons in the matrix. The text explains which icon to press. See the example picture below.</p>
                 <img src=img/Skeuomorphexperiment-example.png>
-                <button id="start-btn" onclick="changePage('page3'); startSkeuomrphExperiment();" >Start the experiment</button>
+                <button id="skeustart-btn" onclick="startSkeuomorphExperiment();" >Start the experiment</button>
             </div>
         </div>
         <div id="page3">
@@ -119,7 +120,7 @@
             <div class="content-container">
                 <p id="flatdesignexperiment-intructions"> Now click on five correct Flat design icons in the matrix like the example picture below.</p>
                 <img src=img/Flatexperiment-example.png>
-                <button onclick="changePage('page3'); startFlatdesignExperiment();" id=start-btn>Start the experiment</button>
+                <button id="flatstart-btn" onclick="startFlatdesignExperiment();" >Start the experiment</button>
             </div>
         </div>
         <div id="page5">

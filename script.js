@@ -26,8 +26,8 @@ var FlatIconArray =
 "<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
+var id = new Date().toLocaleString();;
 var rand;
-var user;
 var skeumorphFails = 0;
 var flatdesignFails = 0;
 var skeumorphTheme;
@@ -38,11 +38,12 @@ var startSkeumorphTimer;
 var startFlatdesignTimer;
 var totalSkeumorphTime;
 var totalFlatdesignTime;
-var flatdesignExperiment;
+var flatdesignExperiment=false;
 var userAge;
-var userMobileExperience;
-var userInternet;
+var userExperience;
+var userbrowser;
 var userDevice;
+var numOfExperiment = 0;
 function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
@@ -53,13 +54,22 @@ function body(){
     skeumorphTheme.style.display='block';
 }
 function saveData() {
+    console.log(id);
+    console.log(userAge);
+    console.log(userExperience);
+    console.log(userDevice);
+    console.log(userbrowser);
+    console.log("skeufails: " +skeumorphFails);
+    console.log("seutime: " +totalSkeumorphTime);
+    console.log("flatfails: " + flatdesignFails);
+    console.log("flattime: " + totalFlatdesignTime);
     $.post("data.php",
     {
-        username: user,
+        id: id,
         age: userAge,
-        experience: userMobileExperience,
-        internet: userInternet,
+        experience: userExperience,
         device: userDevice,
+        browser: userbrowser,
         skeumorphfails: skeumorphFails,
         skeumorphtotaltime: totalSkeumorphTime,
         flatdesignfails: flatdesignFails,
@@ -68,30 +78,26 @@ function saveData() {
 }
 function formData(){
     if(formValidate() == false){
-    changePage('page2');
-    user = $('#userid-inpu').val();
     userAge = $('.agegroup-input:checked').val();
-    userMobileExperience = $('.experience-input:checked').val();
-    userInternet = $('.internet-input:checked').val();
+    userExperience = $('.experience-input:checked').val();
+    userbrowser = $('.browser-input:checked').val();
     userDevice = $('.device-input:checked').val();
     }
     else{
+    }
+    if(document.getElementById("check-exstart").checked){
+        changePage('page4');
+    }
+    else{
+        changePage('page2');
     }
 }
 function formValidate(){
     formValid = false;
     var ageRadios = document.getElementsByName("agegroup");
     var experienceRadios = document.getElementsByName("experience");
-    var internetRadios = document.getElementsByName("internet");
+    var browserRadios = document.getElementsByName("browser");
     var deviceRadios = document.getElementsByName("device");
-    var userIdInput = document.getElementById("userid-input");
-    if (userIdInput.value.length <1) {
-        document.getElementById("useridvalidate-text").innerHTML = ("Please name a username");
-        formValid = true;
-    }
-    else{
-        document.getElementById("useridvalidate-text").innerHTML = ("");
-    }
     if (!(ageRadios[0].checked || ageRadios[1].checked)) {
         document.getElementById("agevalidate-text").innerHTML = ("Please select your agegroup");
         formValid = true;
@@ -106,12 +112,12 @@ function formValidate(){
     else{
         document.getElementById("experiencevalidate-text").innerHTML = ("");
     }
-    if (!(internetRadios[0].checked || internetRadios[1].checked || internetRadios[2].checked)) {
-        document.getElementById("internetvalidate-text").innerHTML = ("Please select your internet connection");
+    if (!(browserRadios[0].checked || browserRadios[1].checked || browserRadios[2].checked)) {
+        document.getElementById("browservalidate-text").innerHTML = ("Please select your browser connection");
         formValid = true;
     }
     else{
-        document.getElementById("internetvalidate-text").innerHTML = ("");
+        document.getElementById("browservalidate-text").innerHTML = ("");
     }
     if (!(deviceRadios[0].checked || deviceRadios[1].checked || deviceRadios[2].checked)) {
         document.getElementById("devicevalidate-text").innerHTML = ("Please select your kind of device");
@@ -128,19 +134,25 @@ function changePage(page){
         page1.style.display='none';
         page3.style.display='none';
         page4.style.display='none';
+        page5.style.display='none';
     }
     else if(page=="page3"){
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='block';
         page4.style.display='none';
+        page5.style.display='none';
     }
     else if(page=="page4"){
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='none';
         page4.style.display='block';
+        page5.style.display='none';
     }
     else if(page=="page5"){
         saveData();
+        page1.style.display='none';
         page2.style.display='none';
         page3.style.display='none';
         page4.style.display='none';
@@ -158,7 +170,7 @@ function timerStart(){
 }
 // change theme to flat or skeuomorphic
 function changeTheme(){
-    if(skeumorphTheme.style.display == 'block'){
+    if(flatdesignExperiment==true){
         skeumorphTheme.style.display='none';
         flatdesignTheme.style.display='block';
         flatdesignExperiment=true;
@@ -214,16 +226,22 @@ function randomIcon(){
         }
     }
 }
-function startSkeuomrphExperiment(){
-    randomQuote();
-    randomIcon();
-    timerStart();
-}
-function startFlatdesignExperiment(){
+function startSkeuomorphExperiment(){
+    flatdesignExperiment = false;
     changeTheme();
     myrng = new Math.seedrandom('myrandom');
     randomQuote();
     randomIcon();
+    changePage('page3');
+    timerStart();
+}
+function startFlatdesignExperiment(){
+    flatdesignExperiment = true;
+    changeTheme();
+    myrng = new Math.seedrandom('myrandom');
+    randomQuote();
+    randomIcon();
+    changePage('page3');
     timerStart();
 }
 function checkRightIcon(iconName){
@@ -232,8 +250,14 @@ function checkRightIcon(iconName){
             skeumorphRightClicks ++;
             if(skeumorphRightClicks >= 5){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
-                changePage('page4');
                 skeumorphRightClicks = 0;
+                numOfExperiment += 1;
+                if(numOfExperiment == 2){
+                    changePage('page5');
+                }
+                else{
+                    changePage('page4');
+                }
             }
             else{
                 randomQuote();
@@ -245,7 +269,13 @@ function checkRightIcon(iconName){
             if(flatdesignRightClicks >= 5){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatdesignRightClicks = 0;
-                changePage('page5');
+                numOfExperiment += 1;
+                if(numOfExperiment == 2){
+                    changePage('page5');
+                }
+                else{
+                    changePage('page2');
+                }
             }
             else{
                 randomQuote();

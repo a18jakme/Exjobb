@@ -9,7 +9,6 @@ body{
         background:white;
     }
     .content-container{
-        margin-top: 50%;
         text-align: center;
         font-size: 16px;
     }
@@ -52,6 +51,10 @@ body{
     .text-input{
         color: grey; 
         text-align: center;
+    }
+    #exstart-cont{
+        position: absolute;
+        bottom: 0px;
     }
 
     /* Experimentpage css */
