@@ -52,6 +52,10 @@ body{
         color: grey; 
         text-align: center;
     }
+    #exstart-cont{
+        position: absolute;
+        bottom: 0px;
+    }
 
     /* Experimentpage css */
     .iconmatrix{

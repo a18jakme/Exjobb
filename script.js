@@ -78,13 +78,18 @@ function saveData() {
 }
 function formData(){
     if(formValidate() == false){
-    changePage('page4');
     userAge = $('.agegroup-input:checked').val();
     userExperience = $('.experience-input:checked').val();
     userbrowser = $('.browser-input:checked').val();
     userDevice = $('.device-input:checked').val();
     }
     else{
+    }
+    if(document.getElementById("check-exstart").checked){
+        changePage('page4');
+    }
+    else{
+        changePage('page2');
     }
 }
 function formValidate(){
