@@ -52,6 +52,7 @@ var skeumorphFails = 0;
 var flatdesignFails = 0;
 var totalSkeumorphTime;
 var totalFlatdesignTime;
+var firstExperiment;
 
 function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
@@ -84,6 +85,7 @@ function saveData() {
         skeumorphtotaltime: totalSkeumorphTime,
         flatdesignfails: flatdesignFails,
         flatdesigntotaltime: totalFlatdesignTime,
+        firstexperiment: firstExperiment,
     });
 }
 /* Stores data from survey form */
@@ -96,10 +98,12 @@ function formData(){
         if(document.getElementById("check-exstart").checked){
             changePage('page4');
             flatdesignExperiment = true;
+            firstExperiment = "flatdesign";
         }
         else{
             flatdesignExperiment = false
             changePage('page2');
+            firstExperiment = "skeuomorphism";
         }
     }
     else{

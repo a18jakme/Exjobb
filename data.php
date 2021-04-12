@@ -18,9 +18,10 @@ $skeumorphfails= mysqli_real_escape_string($conn, $_POST['skeumorphfails']);
 $skeumorphtotaltime= mysqli_real_escape_string($conn, $_POST['skeumorphtotaltime']);
 $flatdesignfails= mysqli_real_escape_string($conn, $_POST['flatdesignfails']);
 $flatdesigntotaltime= mysqli_real_escape_string($conn, $_POST['flatdesigntotaltime']);
+$firstexperiment= mysqli_real_escape_string($conn, $_POST['firstexperiment']);
 
-$sql = "INSERT INTO mydata (id, agegroup, device, experience, browser, skeuomorphfails, skeuomorphtime, flatdesignfails, flatdesigntime)
-VALUES ('$id','$age','$device','$experience','$browser','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime')";
+$sql = "INSERT INTO mydata (id, agegroup, device, experience, browser, skeuomorphfails, skeuomorphtime, flatdesignfails, flatdesigntime, firstexperiment)
+VALUES ('$id','$age','$device','$experience','$browser','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime','$firstexperiment')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Page saved!";

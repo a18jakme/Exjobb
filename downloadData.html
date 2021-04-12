@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.get("downloadMeasureData.php", function(data){
+                    var dataArray = JSON.parse(data);
+                    var str="data:text/csv;charset=utf-8,"; // CSV file
+                    for(var i = 0; i < dataArray.length; i++){
+                        str+=dataArray[i]["id"] + ",";
+                        str+=dataArray[i]["agegroup"] + ",";
+                        str+=dataArray[i]["device"] + ",";
+                        str+=dataArray[i]["experience"] + ",";
+                        str+=dataArray[i]["browser"] + ",";
+                        str+=dataArray[i]["skeuomorphfails"] + ",";
+                        str+=dataArray[i]["skeuomorphtime"] + ",";
+                        str+=dataArray[i]["flatdesignfails"] + ",";
+                        str+=dataArray[i]["flatdesigntime"] + ",";
+                        str+=dataArray[i]["firstexperiment"] + ", \n";
+                    }
+                    var anchor = document.createElement("a");
+                    anchor.setAttribute("href", encodeURI(str));
+                    anchor.setAttribute("download", "my_data.csv");
+                    document.body.appendChild(anchor);
+                    anchor.click();
+                });
+            });
+        });
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <button>download</button>
+</body>
+</html>
