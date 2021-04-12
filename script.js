@@ -51,6 +51,7 @@ function body(){
     page2 = document.getElementById("page2");
     page3 = document.getElementById("page3");
     page4 = document.getElementById("page4");
+    countpage = document.getElementById("countpage");
     skeumorphTheme.style.display='block';
 }
 function saveData() {
@@ -78,19 +79,22 @@ function saveData() {
 }
 function formData(){
     if(formValidate() == false){
-    userAge = $('.agegroup-input:checked').val();
-    userExperience = $('.experience-input:checked').val();
-    userbrowser = $('.browser-input:checked').val();
-    userDevice = $('.device-input:checked').val();
+        userAge = $('.agegroup-input:checked').val();
+        userExperience = $('.experience-input:checked').val();
+        userbrowser = $('.browser-input:checked').val();
+        userDevice = $('.device-input:checked').val();
+        if(document.getElementById("check-exstart").checked){
+            changePage('page4');
+            flatdesignExperiment = true;
+        }
+        else{
+            flatdesignExperiment = false
+            changePage('page2');
+        }
     }
     else{
     }
-    if(document.getElementById("check-exstart").checked){
-        changePage('page4');
-    }
-    else{
-        changePage('page2');
-    }
+
 }
 function formValidate(){
     formValid = false;
@@ -135,6 +139,7 @@ function changePage(page){
         page3.style.display='none';
         page4.style.display='none';
         page5.style.display='none';
+        countpage.style.display='none';
     }
     else if(page=="page3"){
         page1.style.display='none';
@@ -142,6 +147,7 @@ function changePage(page){
         page3.style.display='block';
         page4.style.display='none';
         page5.style.display='none';
+        countpage.style.display='none';
     }
     else if(page=="page4"){
         page1.style.display='none';
@@ -149,6 +155,7 @@ function changePage(page){
         page3.style.display='none';
         page4.style.display='block';
         page5.style.display='none';
+        countpage.style.display='none';
     }
     else if(page=="page5"){
         saveData();
@@ -157,6 +164,16 @@ function changePage(page){
         page3.style.display='none';
         page4.style.display='none';
         page5.style.display='block';
+        countpage.style.display='none';
+    }
+    else if(page=="countpage"){
+        page1.style.display='none';
+        page2.style.display='none';
+        page3.style.display='none';
+        page4.style.display='none';
+        page5.style.display='none';
+        countpage.style.display='block';
+        countdownTimer();
     }
 }
 //experiment timer start
@@ -227,20 +244,12 @@ function randomIcon(){
     }
 }
 function startSkeuomorphExperiment(){
-    flatdesignExperiment = false;
     changeTheme();
-    myrng = new Math.seedrandom('myrandom');
-    randomQuote();
-    randomIcon();
     changePage('page3');
     timerStart();
 }
 function startFlatdesignExperiment(){
-    flatdesignExperiment = true;
     changeTheme();
-    myrng = new Math.seedrandom('myrandom');
-    randomQuote();
-    randomIcon();
     changePage('page3');
     timerStart();
 }
@@ -252,6 +261,7 @@ function checkRightIcon(iconName){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeumorphRightClicks = 0;
                 numOfExperiment += 1;
+                flatdesignExperiment = true;
                 if(numOfExperiment == 2){
                     changePage('page5');
                 }
@@ -270,6 +280,7 @@ function checkRightIcon(iconName){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatdesignRightClicks = 0;
                 numOfExperiment += 1;
+                flatdesignExperiment = false;
                 if(numOfExperiment == 2){
                     changePage('page5');
                 }
@@ -294,4 +305,25 @@ function checkRightIcon(iconName){
         }
 
     }
+}
+function countdownTimer(){
+var timeleft = 5;
+myrng = new Math.seedrandom('myrandom');
+randomQuote();
+randomIcon();
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    document.getElementById("countdown").innerHTML = "";
+    clearInterval(downloadTimer);
+    if(!flatdesignExperiment){
+        startSkeuomorphExperiment();
+    }
+    else{
+        startFlatdesignExperiment();
+    }
+  } else {
+    document.getElementById("countdown").innerHTML = "Experiemnt starts in: " + timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
 }

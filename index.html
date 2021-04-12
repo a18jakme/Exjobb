@@ -75,7 +75,12 @@
             <div class="content-container">
                 <p id="skeumorphexperiment-intructions"> In the experiment you should click on five correct skeuomorphic icons in the matrix. The text explains which icon to press. See the example picture below.</p>
                 <img src=img/Skeuomorphexperiment-example.png>
-                <button id="skeustart-btn" onclick="startSkeuomorphExperiment();" >Start the experiment</button>
+                <button id="skeustart-btn" onclick="changePage('countpage');" >Start the experiment</button>
+            </div>
+        </div>
+        <div id="countpage">
+            <div class="content-container">
+                <p id="countdown"></p>
             </div>
         </div>
         <div id="page3">
@@ -120,7 +125,7 @@
             <div class="content-container">
                 <p id="flatdesignexperiment-intructions"> Now click on five correct Flat design icons in the matrix like the example picture below.</p>
                 <img src=img/Flatexperiment-example.png>
-                <button id="flatstart-btn" onclick="startFlatdesignExperiment();" >Start the experiment</button>
+                <button id="flatstart-btn" onclick="changePage('countpage');" >Start the experiment</button>
             </div>
         </div>
         <div id="page5">
