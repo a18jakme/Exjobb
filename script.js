@@ -38,11 +38,12 @@ var startSkeumorphTimer;
 var startFlatdesignTimer;
 var totalSkeumorphTime;
 var totalFlatdesignTime;
-var flatdesignExperiment;
+var flatdesignExperiment=false;
 var userAge;
 var userExperience;
 var userbrowser;
 var userDevice;
+var numOfExperiment = 0;
 function body(){
     skeumorphTheme = document.getElementById("skeumorph-content");
     flatdesignTheme = document.getElementById("flatdesign-content");
@@ -53,6 +54,15 @@ function body(){
     skeumorphTheme.style.display='block';
 }
 function saveData() {
+    console.log(id);
+    console.log(userAge);
+    console.log(userExperience);
+    console.log(userDevice);
+    console.log(userbrowser);
+    console.log("skeufails: " +skeumorphFails);
+    console.log("seutime: " +totalSkeumorphTime);
+    console.log("flatfails: " + flatdesignFails);
+    console.log("flattime: " + totalFlatdesignTime);
     $.post("data.php",
     {
         id: id,
@@ -68,7 +78,7 @@ function saveData() {
 }
 function formData(){
     if(formValidate() == false){
-    changePage('page2');
+    changePage('page4');
     userAge = $('.agegroup-input:checked').val();
     userExperience = $('.experience-input:checked').val();
     userbrowser = $('.browser-input:checked').val();
@@ -155,7 +165,7 @@ function timerStart(){
 }
 // change theme to flat or skeuomorphic
 function changeTheme(){
-    if(skeumorphTheme.style.display == 'block'){
+    if(flatdesignExperiment==true){
         skeumorphTheme.style.display='none';
         flatdesignTheme.style.display='block';
         flatdesignExperiment=true;
@@ -211,13 +221,17 @@ function randomIcon(){
         }
     }
 }
-function startSkeuomrphExperiment(){
+function startSkeuomorphExperiment(){
+    flatdesignExperiment = false;
+    changeTheme();
+    myrng = new Math.seedrandom('myrandom');
     randomQuote();
     randomIcon();
     changePage('page3');
     timerStart();
 }
 function startFlatdesignExperiment(){
+    flatdesignExperiment = true;
     changeTheme();
     myrng = new Math.seedrandom('myrandom');
     randomQuote();
@@ -231,8 +245,14 @@ function checkRightIcon(iconName){
             skeumorphRightClicks ++;
             if(skeumorphRightClicks >= 5){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
-                changePage('page4');
                 skeumorphRightClicks = 0;
+                numOfExperiment += 1;
+                if(numOfExperiment == 2){
+                    changePage('page5');
+                }
+                else{
+                    changePage('page4');
+                }
             }
             else{
                 randomQuote();
@@ -244,7 +264,13 @@ function checkRightIcon(iconName){
             if(flatdesignRightClicks >= 5){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatdesignRightClicks = 0;
-                changePage('page5');
+                numOfExperiment += 1;
+                if(numOfExperiment == 2){
+                    changePage('page5');
+                }
+                else{
+                    changePage('page2');
+                }
             }
             else{
                 randomQuote();
