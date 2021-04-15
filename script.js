@@ -32,7 +32,7 @@ var flatIconArray =
 "<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
 "<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
-var rand;
+var quoteIndex;
 var skeumorphTheme;
 var flatdesignTheme;
 var startSkeumorphTimer;
@@ -223,14 +223,15 @@ function changeTheme(){
     }
 }
 function randomQuote(){
-    rand = Math.floor(myrng() * textQuote.length); // Generate same random text
-    document.getElementById('textinstruction').innerHTML = textQuote[rand];
+    quoteIndex = Math.floor(myrng() * textQuote.length); // Generate same random text with seedrandom
+    document.getElementById('textinstruction').innerHTML = textQuote[quoteIndex];
 }
 /* Generate random icon */
 function randomIcon(){
     document.getElementById('wrongmessage').innerHTML = "";
     for (var i = skeuomorphIconArray.length - 1; i > 0; i--) {
-        var j = Math.floor(myrng() * (i + 1)); // Generate same random icon posisitons
+        // Generate same random icon posisitons with seedrandom
+        var j = Math.floor(myrng() * (i + 1));
         var tempArray;
         // Generate flat or skeuomorphic icons
         if(!flatdesignExperiment){
@@ -271,7 +272,7 @@ function randomIcon(){
 }
 /* Check right and fail clicks */
 function checkRightIcon(iconName){
-    if(iconName == textQuote[rand]){
+    if(iconName == textQuote[quoteIndex]){
         if(!flatdesignExperiment){
             skeumorphRightClicks ++;
             if(skeumorphRightClicks >= 5){
