@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "exjobb";
+$username = "a18jakme";
+$password = "ajarkell123";
+$dbname = "a18jakme_exjobb";
 
 $conn = new mysqli($servername, $username, $password, $dbname); // Create connection
 if ($conn->connect_error) {     // Check connection
@@ -18,9 +18,10 @@ $skeumorphfails= mysqli_real_escape_string($conn, $_POST['skeumorphfails']);
 $skeumorphtotaltime= mysqli_real_escape_string($conn, $_POST['skeumorphtotaltime']);
 $flatdesignfails= mysqli_real_escape_string($conn, $_POST['flatdesignfails']);
 $flatdesigntotaltime= mysqli_real_escape_string($conn, $_POST['flatdesigntotaltime']);
+$firstexperiment= mysqli_real_escape_string($conn, $_POST['firstexperiment']);
 
-$sql = "INSERT INTO mydata (id, agegroup, device, experience, browser, skeuomorphfails, skeuomorphtime, flatdesignfails, flatdesigntime)
-VALUES ('$id','$age','$device','$experience','$browser','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime')";
+$sql = "INSERT INTO mydata (id, agegroup, device, experience, browser, skeuomorphfails, skeuomorphtime, flatdesignfails, flatdesigntime, firstexperiment)
+VALUES ('$id','$age','$device','$experience','$browser','$skeumorphfails','$skeumorphtotaltime','$flatdesignfails','$flatdesigntotaltime','$firstexperiment')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Page saved!";
