@@ -275,7 +275,7 @@ function checkCorrectIcon(iconName){
     // If the clicked icon is the same as the textquote
     if(iconName == textQuote[quoteIndex]){
         if(!flatdesignExperiment){
-            skeumorphCorrectClicks ++;
+            skeuCorrectClicks ++;
             if(skeuCorrectClicks >= 5){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeuCorrectClicks = 0;
