@@ -6,31 +6,31 @@
 /* Global variables */
 var myrng = new Math.seedrandom('myrandom'); //save a specific random
 var skeuomorphIconArray = 
-["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Coffee-icon class=iconimage src=Skeumorph-icons/coffee-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Book-icon class=iconimage src=Skeumorph-icons/book-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Glasses-icon class=iconimage src=Skeumorph-icons/glasses-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Speaker-icon class=iconimage src=Skeumorph-icons/speaker-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Camera-icon class=iconimage src=Skeumorph-icons/camera-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Trashcan-icon class=iconimage src=Skeumorph-icons/trashcan-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
+["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=Skeumorph-icons/coffee-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=Skeumorph-icons/book-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=Skeumorph-icons/glasses-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=Skeumorph-icons/speaker-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=Skeumorph-icons/camera-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=Skeumorph-icons/trashcan-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
 var flatIconArray = 
-["<img onclick='checkRightIcon(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Coffee-icon class=iconimage src=Flatdesign-icons/coffee-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Book-icon class=iconimage src=Flatdesign-icons/book-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Glasses-icon class=iconimage src=Flatdesign-icons/glasses-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Speaker-icon class=iconimage src=Flatdesign-icons/speaker-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Camera-icon class=iconimage src=Flatdesign-icons/camera-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Trashcan-icon class=iconimage src=Flatdesign-icons/trashcan-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
-"<img onclick='checkRightIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
+["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=Flatdesign-icons/coffee-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=Flatdesign-icons/book-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=Flatdesign-icons/glasses-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=Flatdesign-icons/speaker-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=Flatdesign-icons/camera-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=Flatdesign-icons/trashcan-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var quoteIndex;
 var skeumorphTheme;
@@ -39,8 +39,8 @@ var startSkeumorphTimer;
 var startFlatdesignTimer;
 var flatdesignExperiment = false;
 var numOfExperiment = 0;
-var skeumorphRightClicks = 0;
-var flatdesignRightClicks = 0;
+var skeuCorrectClicks = 0;
+var flatCorrectClicks = 0;
 
 /* Measure data variables */
 var id = new Date().toLocaleString();
@@ -271,13 +271,14 @@ function randomIcon(){
     }
 }
 /* Check right and fail clicks */
-function checkRightIcon(iconName){
+function checkCorrectIcon(iconName){
+    // If the clicked icon is the same as the textquote
     if(iconName == textQuote[quoteIndex]){
         if(!flatdesignExperiment){
-            skeumorphRightClicks ++;
-            if(skeumorphRightClicks >= 5){
+            skeumorphCorrectClicks ++;
+            if(skeuCorrectClicks >= 5){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
-                skeumorphRightClicks = 0;
+                skeuCorrectClicks = 0;
                 numOfExperiment += 1;
                 flatdesignExperiment = true;
                 if(numOfExperiment == 2){
@@ -293,10 +294,10 @@ function checkRightIcon(iconName){
             }
         }
         else{
-            flatdesignRightClicks ++;
-            if(flatdesignRightClicks >= 5){
+            flatCorrectClicks ++;
+            if(flatCorrectClicks >= 5){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
-                flatdesignRightClicks = 0;
+                flatCorrectClicks = 0;
                 numOfExperiment += 1;
                 flatdesignExperiment = false;
                 if(numOfExperiment == 2){
@@ -321,9 +322,9 @@ function checkRightIcon(iconName){
             document.getElementById('wrongmessage').innerHTML = "Wrong icon try again!";
             flatdesignFails ++;
         }
-
     }
 }
+
 /* Start countdown timer before every experiment */
 function countdownTimer(){
 var timeleft = 5;
