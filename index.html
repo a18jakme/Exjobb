@@ -7,6 +7,18 @@
         <script src="script.js"></script> 
     </head>
     <body onload="body();">
+        <div id ="ethicpage">
+            <div id="ethic-content" class="content-container">
+                <h2>Ethical aspects in this experiment</h2>
+                <p>Before you start this experiment we want to inform you about some ethical aspects. The aspects are listed below. If you do not agree with any of the aspects, you are free to skip the experiment. </p>
+                    <ul id="ethic-list">
+                        <li>The experiment will only store data for measurement purposes.</li>
+                        <li>The data stored will not be personal data that can be traced to you.</li>
+                        <li>During the experiment, you are free to quit whenever you want.</li>
+                    </ul>
+                    <button id="ethic-btn" value="submit" onclick="changePage('page1');">I agree</button>
+            </div>
+        </div>
         <div id="page1">
             <div id="survey-content" class="content-container">
                 <form id="survey-form" method="POST">
