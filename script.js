@@ -65,15 +65,6 @@ function body(){
     skeumorphTheme.style.display='block';
 }
 function saveData() {
-    console.log(id);
-    console.log(userAge);
-    console.log(userExperience);
-    console.log(userDevice);
-    console.log(userBrowser);
-    console.log("skeufails: " +skeumorphFails);
-    console.log("seutime: " +totalSkeumorphTime);
-    console.log("flatfails: " + flatdesignFails);
-    console.log("flattime: " + totalFlatdesignTime);
     $.post("data.php",
     {
         id: id,
@@ -90,6 +81,7 @@ function saveData() {
 }
 /* Stores data from survey form */
 function formData(){
+    // Checks if the user has entered all values ​​in the survey
     if(formValidate() == false){
         userAge = $('.agegroup-input:checked').val();
         userExperience = $('.experience-input:checked').val();
@@ -147,9 +139,17 @@ function formValidate(){
     return formValid;
 }
 function changePage(page){
+    if (page=="page1"){
+        page1.style.display='block';
+        page2.style.display='none';
+        page3.style.display='none';
+        page4.style.display='none';
+        page5.style.display='none';
+        ethicpage.style.display='none';
+    }
     if (page=="page2"){
-        page2.style.display='block';
         page1.style.display='none';
+        page2.style.display='block';
         page3.style.display='none';
         page4.style.display='none';
         page5.style.display='none';
@@ -276,7 +276,8 @@ function checkCorrectIcon(iconName){
     if(iconName == textQuote[quoteIndex]){
         if(!flatdesignExperiment){
             skeuCorrectClicks ++;
-            if(skeuCorrectClicks >= 5){
+            // When user hit 30 correct ikons
+            if(skeuCorrectClicks >= 30){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeuCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -295,7 +296,8 @@ function checkCorrectIcon(iconName){
         }
         else{
             flatCorrectClicks ++;
-            if(flatCorrectClicks >= 5){
+            // When user hit 30 correct ikons
+            if(flatCorrectClicks >= 30){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -324,11 +326,10 @@ function checkCorrectIcon(iconName){
         }
     }
 }
-
 /* Start countdown timer before every experiment */
 function countdownTimer(){
 var timeleft = 5;
-myrng = new Math.seedrandom('myrandom'); // generate the same random for icon and quote
+myrng = new Math.seedrandom('myrandom'); // Generate the same random for icon and quote
 randomQuote();
 randomIcon();
 var downloadTimer = setInterval(function(){
