@@ -6,31 +6,31 @@
 /* Global variables */
 var myrng = new Math.seedrandom('myrandom'); //save a specific random
 var skeuomorphIconArray = 
-["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=Skeumorph-icons/hamburger-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=Skeumorph-icons/computer-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=Skeumorph-icons/donut-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=Skeumorph-icons/coffee-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=Skeumorph-icons/book-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=Skeumorph-icons/glasses-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=Skeumorph-icons/speaker-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=Skeumorph-icons/camera-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=Skeumorph-icons/trashcan-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=Skeumorph-icons/headphones-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=Skeumorph-icons/pencil-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=Skeumorph-icons/search-icon/57.png>"];
+["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=../Skeumorph-icons/hamburger-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=../Skeumorph-icons/computer-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=../Skeumorph-icons/donut-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=../Skeumorph-icons/coffee-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=../Skeumorph-icons/book-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=../Skeumorph-icons/glasses-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=../Skeumorph-icons/speaker-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=../Skeumorph-icons/camera-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=../Skeumorph-icons/trashcan-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=../Skeumorph-icons/headphones-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=../Skeumorph-icons/pencil-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=../Skeumorph-icons/search-icon/57.png>"];
 var flatIconArray = 
-["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=Flatdesign-icons/hamburger-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=Flatdesign-icons/computer-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=Flatdesign-icons/donut-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=Flatdesign-icons/coffee-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=Flatdesign-icons/book-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=Flatdesign-icons/glasses-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=Flatdesign-icons/speaker-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=Flatdesign-icons/camera-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=Flatdesign-icons/trashcan-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=Flatdesign-icons/headphones-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=Flatdesign-icons/pencil-icon/57.png>",
-"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=Flatdesign-icons/search-icon/57.png>"];
+["<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=../Flatdesign-icons/hamburger-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Computer-icon class=iconimage src=../Flatdesign-icons/computer-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Donut-icon class=iconimage src=../Flatdesign-icons/donut-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Coffee-icon class=iconimage src=../Flatdesign-icons/coffee-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Book-icon class=iconimage src=../Flatdesign-icons/book-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Glasses-icon class=iconimage src=../Flatdesign-icons/glasses-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Speaker-icon class=iconimage src=../Flatdesign-icons/speaker-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Camera-icon class=iconimage src=../Flatdesign-icons/camera-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Trashcan-icon class=iconimage src=../Flatdesign-icons/trashcan-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Headphones-icon class=iconimage src=../Flatdesign-icons/headphones-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Pencil-icon class=iconimage src=../Flatdesign-icons/pencil-icon/57.png>",
+"<img onclick='checkCorrectIcon(this.id)' id=Search-icon class=iconimage src=../Flatdesign-icons/search-icon/57.png>"];
 var textQuote = ["Hamburger-icon", "Computer-icon", "Donut-icon", "Coffee-icon", "Book-icon", "Glasses-icon", "Speaker-icon", "Camera-icon", "Trashcan-icon", "Headphones-icon", "Pencil-icon","Search-icon"];
 var quoteIndex;
 var skeumorphTheme;
@@ -277,7 +277,7 @@ function checkCorrectIcon(iconName){
         if(!flatdesignExperiment){
             skeuCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(skeuCorrectClicks >= 30){
+            if(skeuCorrectClicks >= 1){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeuCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -297,7 +297,7 @@ function checkCorrectIcon(iconName){
         else{
             flatCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(flatCorrectClicks >= 30){
+            if(flatCorrectClicks >= 1){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatCorrectClicks = 0;
                 numOfExperiment += 1;
