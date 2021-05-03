@@ -277,7 +277,7 @@ function checkCorrectIcon(iconName){
         if(!flatdesignExperiment){
             skeuCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(skeuCorrectClicks >= 30){
+            if(skeuCorrectClicks >= 1){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeuCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -297,7 +297,7 @@ function checkCorrectIcon(iconName){
         else{
             flatCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(flatCorrectClicks >= 30){
+            if(flatCorrectClicks >= 1){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatCorrectClicks = 0;
                 numOfExperiment += 1;
