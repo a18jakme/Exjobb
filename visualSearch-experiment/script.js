@@ -277,7 +277,7 @@ function checkCorrectIcon(iconName){
         if(!flatdesignExperiment){
             skeuCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(skeuCorrectClicks >= 1){
+            if(skeuCorrectClicks >= 30){
                 totalSkeumorphTime = new Date().getTime() - startSkeumorphTimer;
                 skeuCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -297,7 +297,7 @@ function checkCorrectIcon(iconName){
         else{
             flatCorrectClicks ++;
             // When user hit 30 correct ikons
-            if(flatCorrectClicks >= 1){
+            if(flatCorrectClicks >= 30){
                 totalFlatdesignTime = new Date().getTime() - startFlatdesignTimer;
                 flatCorrectClicks = 0;
                 numOfExperiment += 1;
@@ -342,7 +342,8 @@ var downloadTimer = setInterval(function(){
         else{
             startFlatdesignExperiment();
         }
-        } else {
+    }
+    else{
         document.getElementById("countdown").innerHTML = "Experiment starts in: " + timeleft;
     }
     timeleft -= 1;
