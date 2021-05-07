@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../visualSearch-experiment/script.js"></script> 
+</head>
+<body>
+    <script>
+        var content = document.createElement('div');
+        content.id = 'content';
+        content.style.display = 'flex';
+        content.style.flexWrap = 'wrap';
+        for(i=0; i<=99; i++){
+            var div = document.createElement('div');
+            div.id = 'icon-'+i;
+            div.innerHTML = "<img onclick='checkCorrectIcon(this.id)' id=Hamburger-icon class=iconimage src=../Flatdesign-icons/hamburger-icon/57.png>";
+            div.className = 'ikon';
+            content.appendChild(div);
+        }
+        document.body.appendChild(content);
+    </script>
+</body>
+</html>
