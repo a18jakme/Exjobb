@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         iconLoadtime
+// @name         Flat design icon loadtime script
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        file:///C:/Users/jakob/OneDrive/Documents/GitHub/Exjobb/iconLoadtime-experiment/skeuomorphism-iconLoadtime.html
+// @description  Download copy paste this code in Tampermonkey, dont forget to change the match url. 
+// @author       Jakob Mellqvist
+// @match        file:///C:/Users/jakob/OneDrive/Documents/GitHub/Exjobb/iconLoadtime-experiment/flatdesign-iconLoadtime.html
 // @require      http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @icon         https://www.google.com/s2/favicons?domain=undefined.
 // @grant        none
