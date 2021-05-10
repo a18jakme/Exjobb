@@ -13,11 +13,43 @@
         content.id = 'content';
         content.style.display = 'flex';
         content.style.flexWrap = 'wrap';
-        for(i=0; i<=9; i++){
-            var div = document.createElement('div');
-            div.id = 'computer-icon-'+i;
-            div.innerHTML = "<img src=Flatdesign-icons/hamburger-icon/57"+i+".png>";
-            content.appendChild(div);
+        for(i=0; i<50; i++){
+            var div1 = document.createElement('div');
+            div1.innerHTML = "<img id='book"+i+"' src=LoadFlatdesign-icons/book-icon/book"+i+".png>";
+            content.appendChild(div1);
+            var div2 = document.createElement('div');
+            div2.innerHTML = "<img src=LoadFlatdesign-icons/camera-icon/camera"+i+".png>";
+            content.appendChild(div2);
+            var div3 = document.createElement('div');
+            div3.innerHTML = "<img src=LoadFlatdesign-icons/coffee-icon/coffee"+i+".png>";
+            content.appendChild(div3);
+            var div4 = document.createElement('div');
+            div4.innerHTML = "<img src=LoadFlatdesign-icons/computer-icon/computer"+i+".png>";
+            content.appendChild(div4);
+            var div5 = document.createElement('div');
+            div5.innerHTML = "<img src=LoadFlatdesign-icons/donut-icon/donut"+i+".png>";
+            content.appendChild(div5);
+            var div6 = document.createElement('div');
+            div6.innerHTML = "<img src=LoadFlatdesign-icons/glasses-icon/glasses"+i+".png>";
+            content.appendChild(div6);
+            var div7 = document.createElement('div');
+            div7.innerHTML = "<img src=LoadFlatdesign-icons/hamburger-icon/hamburger"+i+".png>";
+            content.appendChild(div7);
+            var div8 = document.createElement('div');
+            div8.innerHTML = "<img src=LoadFlatdesign-icons/headphones-icon/headphones"+i+".png>";
+            content.appendChild(div8);
+            var div9 = document.createElement('div');
+            div9.innerHTML = "<img src=LoadFlatdesign-icons/pencil-icon/pencil"+i+".png>";
+            content.appendChild(div9);
+            var div10 = document.createElement('div');
+            div10.innerHTML = "<img src=LoadFlatdesign-icons/search-icon/search"+i+".png>";
+            content.appendChild(div10);
+            var div11 = document.createElement('div');
+            div11.innerHTML = "<img src=LoadFlatdesign-icons/speaker-icon/speaker"+i+".png>";
+            content.appendChild(div11);
+            var div12 = document.createElement('div');
+            div12.innerHTML = "<img src=LoadFlatdesign-icons/trashcan-icon/trashcan"+i+".png>";
+            content.appendChild(div12);
         }
         document.body.appendChild(content);
     </script>
