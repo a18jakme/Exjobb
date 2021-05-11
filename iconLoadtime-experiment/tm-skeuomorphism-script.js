@@ -12,10 +12,11 @@
 
 //Check if whole page is loaded
 jQuery(window).load(function () {
-    var pageLoad = 11;
+    var pageLoad = 1001; //Number of page reload
     measureTime();
     function measureTime(){
         var measurement = new Date();
+        //Get items from localstorage
         var str = localStorage.getItem("theData");
         var cnt = parseInt(localStorage.getItem("counter"));
         if(cnt >= pageLoad){
@@ -28,6 +29,7 @@ jQuery(window).load(function () {
                 str="data:text/csv;charset=utf-8";
             }
             else{
+                //Set timer
                 var old = new Date();
                 old = old.setTime(localStorage.getItem("Oldval"));
                 var delta = measurement-old;
@@ -36,6 +38,7 @@ jQuery(window).load(function () {
                 console.log(delta);
             }
             cnt ++;
+            //Set items in localstorage
             localStorage.setItem("theData", str);
             localStorage.setItem("counter", cnt);
             var measurement2 = new Date();
