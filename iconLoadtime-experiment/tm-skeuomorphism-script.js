@@ -29,19 +29,19 @@ jQuery(window).load(function () {
                 str="data:text/csv;charset=utf-8";
             }
             else{
-                //Set timer
+                
                 var old = new Date();
                 old = old.setTime(localStorage.getItem("Oldval"));
                 var delta = measurement-old;
                 // Increase counter and save data to localstorage
                 str += " , " + delta;
-                console.log(delta);
             }
             cnt ++;
             //Set items in localstorage
             localStorage.setItem("theData", str);
             localStorage.setItem("counter", cnt);
             var measurement2 = new Date();
+            // Set timer
             measurement2 = measurement2.getTime();
             localStorage.setItem("Oldval",measurement2);
             location.reload();

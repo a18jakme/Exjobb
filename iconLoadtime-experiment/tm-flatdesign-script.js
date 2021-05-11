@@ -35,7 +35,6 @@ jQuery(window).load(function () {
                 var delta = measurement-old;
                 // Increase counter and save data to localstorage
                 str += " , " + delta;
-                console.log(delta);
             }
             cnt ++;
             //Set items in localstorage
